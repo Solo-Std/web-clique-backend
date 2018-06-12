@@ -57,3 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['api/user_master']['GET'] = 'UserController/index/';
 $route['api/user_master']['POST'] = 'UserController/insert/';
 $route['api/user_master']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master/check_username']['POST'] = 'UserController/check_username/';
+$route['api/user_master/check_username']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master/check_email']['POST'] = 'UserController/check_email/';
+$route['api/user_master/check_email']['OPTIONS'] = 'UserController/http_options/';
