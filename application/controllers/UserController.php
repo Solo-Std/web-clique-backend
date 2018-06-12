@@ -5,6 +5,8 @@
  * Date: 12/06/2018
  * Time: 15.50
  */
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
 class UserController extends CI_Controller
 {

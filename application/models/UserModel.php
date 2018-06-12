@@ -14,11 +14,11 @@ class UserModel extends CI_Model
     }
 
     public function getAll(){
-        $data = array();
+        $data = array(array());
         $query = $this->db->get('user_master');
-        foreach ($query->result() as $row){
-            $data['username'] = $row->username;
-            $data['password'] = $row->password;
+        foreach ($query->result() as $idx=>$row){
+            $data[$idx]['username'] = $row->username;
+            $data[$idx]['password'] = $row->password;
         }
         return $data;
     }
