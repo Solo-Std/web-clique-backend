@@ -54,5 +54,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['api/user_master']['GET'] = 'UserController/index';
-$route['api/user_master']['POST'] = 'UserController/insert';
+$route['api/user_master']['GET'] = 'UserController/index/';
+$route['api/user_master']['POST'] = 'UserController/insert/';
+$route['api/user_master']['OPTIONS'] = 'UserController/http_options/';

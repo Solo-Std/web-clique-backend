@@ -24,13 +24,14 @@ class UserModel extends CI_Model
     }
 
     public function insert($data){
-//        $query = $this->db->get('user_master');
-//        foreach ($query->result() as $row){
-//            if($data['username'] == $row->username){
-//                return null;
-//            }
-//        }
-//        return $data;
-        $this->db->insert('user_master',$data);
+        $this->db->where('username',$data['username']);
+        $query = $this->db->get('user_master');
+        if($query->num_rows() > 0){
+            return false;
+        }
+        else{
+            $this->db->insert('user_master',$data);
+            return true;
+        }
     }
 }

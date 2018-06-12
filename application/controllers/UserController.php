@@ -5,11 +5,10 @@
  * Date: 12/06/2018
  * Time: 15.50
  */
-header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
 class UserController extends CI_Controller
 {
+
     function __construct()
     {
         parent::__construct();
@@ -23,12 +22,19 @@ class UserController extends CI_Controller
     }
 
     public function insert(){
+        $raw = json_decode($this->input->raw_input_stream, true);
         $data = array(
-            'username'=>$this->input->post("username"),
-            'password'=>$this->input->post("password"),
-            'email'=>$this->input->post("email")
+            'username' => $raw['user']['username'],
+            'password' => $raw['user']['password'],
+            'email' => $raw['user']['email']
         );
-        $this->UserModel->insert($data);
-        echo json_encode($data);
+        if($this->UserModel->insert($data)){
+            echo json_encode("SUCCESS");
+        }
+        else echo json_encode("FAILED");
+    }
+
+    public function http_options(){
+        echo json_encode("200");
     }
 }
