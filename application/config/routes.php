@@ -61,3 +61,7 @@ $route['api/user_master/check_username']['POST'] = 'UserController/check_usernam
 $route['api/user_master/check_username']['OPTIONS'] = 'UserController/http_options/';
 $route['api/user_master/check_email']['POST'] = 'UserController/check_email/';
 $route['api/user_master/check_email']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master/fb_login']['POST'] = 'UserController/fb_login/';
+$route['api/user_master/fb_login']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master/gp_login']['POST'] = 'UserController/gp_login/';
+$route['api/user_master/gp_login']['OPTIONS'] = 'UserController/http_options/';

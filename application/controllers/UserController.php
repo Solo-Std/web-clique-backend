@@ -25,7 +25,33 @@ class UserController extends CI_Controller
         $raw = json_decode($this->input->raw_input_stream, true);
         $data = array(
             'username' => $raw['user']['username'],
-            'password' => $raw['user']['password'],
+            'password' => md5($raw['user']['password']),
+            'email' => $raw['user']['email']
+        );
+        if($this->UserModel->insert($data)){
+            echo json_encode("SUCCESS");
+        }
+        else echo json_encode("FAILED");
+    }
+
+    public function fb_login(){
+        $raw = json_decode($this->input->raw_input_stream, true);
+        $data = array(
+            'username' => $raw['user']['username'],
+            'password' => md5($raw['user']['password']),
+            'email' => $raw['user']['email']
+        );
+        if($this->UserModel->insert($data)){
+            echo json_encode("SUCCESS");
+        }
+        else echo json_encode("FAILED");
+    }
+
+    public function gp_login(){
+        $raw = json_decode($this->input->raw_input_stream, true);
+        $data = array(
+            'username' => $raw['user']['username'],
+            'password' => md5($raw['user']['password']),
             'email' => $raw['user']['email']
         );
         if($this->UserModel->insert($data)){
