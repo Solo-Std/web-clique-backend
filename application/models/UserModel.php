@@ -35,6 +35,33 @@ class UserModel extends CI_Model
         }
     }
 
+    public function sso_login($data){
+        $this->db->select('email','facebook_id','google_id');
+        $this->db->from('user_master');
+        $this->db->where('email',$data['email']);
+        $query = $this->db->get();
+        if($query->num_rows() > 0){
+            if(isset($data['facebook_id'])){
+                if($query->row('facebook_id') == ''){
+                    $this->db->set('facebook_id',$data['facebook_id']);
+                    $this->db->where('email',$data['email']);
+                    $this->db->update('user_master');
+                }
+            }
+            else if(isset($data['google_id'])){
+                if($query->row('google_id') == ''){
+                    $this->db->set('google_id',$data['google_id']);
+                    $this->db->where('email',$data['email']);
+                    $this->db->update('user_master');
+                }
+
+            }
+        }
+        else{
+            $this->db->insert('user_master',$data);
+        }
+    }
+
     public function check_username($username){
         $this->db->where('username',$username);
         $query = $this->db->get('user_master');
@@ -46,4 +73,12 @@ class UserModel extends CI_Model
         $query = $this->db->get('user_master');
         return ($query->num_rows() > 0)?false:true;
     }
+
+    public function login($data){
+        $this->db->where('username',$data['username']);
+        $this->db->where('password',$data['password']);
+        $query = $this->db->get('user_master');
+        return ($query->num_rows() > 0)?true:false;
+    }
+
 }
