@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5c59cd2-fc5c-4e6b-ab58-5a5a9cb03ad3" name="Default" comment="" />
+    <list default="true" id="a5c59cd2-fc5c-4e6b-ab58-5a5a9cb03ad3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/UserController.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +71,8 @@
       <file leaf-file-name="PostModel.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/PostModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+            <state relative-caret-position="204">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -230,12 +234,12 @@
       <workItem from="1528792993155" duration="5449000" />
       <workItem from="1528804348522" duration="16360000" />
       <workItem from="1528870368762" duration="10967000" />
-      <workItem from="1528985860580" duration="4677000" />
+      <workItem from="1528985860580" duration="4019000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37453000" />
+    <option name="totallyTimeSpent" value="36795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="974" height="1040" extended-state="0" />
@@ -493,8 +497,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/PostModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+        <state relative-caret-position="204">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
         </state>
       </provider>
     </entry>
