@@ -19,4 +19,8 @@ class PostController extends CI_Controller
     public function index(){
         echo json_encode($this->PostModel->getAll());
     }
+
+    public function getOne($id){
+        echo json_encode($this->PostModel->getOne($id));
+    }
 }
