@@ -29,8 +29,8 @@ class CommentController extends CI_Controller
             'post_id' => $raw['post_id']
         );
         if($this->CommentModel->insert($data)){
-            echo json_encode("SUCCESS");
+            echo json_encode("FAILED");
         }
-        else echo json_encode("FAILED");
+        else echo json_encode("SUCCESS");
     }
 }
