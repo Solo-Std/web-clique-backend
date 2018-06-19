@@ -72,3 +72,5 @@ $route['api/post_master']['GET'] = 'PostController/index/';
 $route['api/post_master/(:num)']['GET'] = 'PostController/getOne/$1';
 
 $route['api/comment_master/(:num)']['GET'] = 'CommentController/index/$1';
+
+$route['api/reply_master/(:num)']['GET'] = 'ReplyController/index/$1';
