@@ -19,4 +19,18 @@ class ReplyController extends CI_Controller
     public function index($post_id){
         echo json_encode($this->ReplyModel->getAll($post_id));
     }
+
+//    public function insert(){
+//        $raw = json_decode($this->input->raw_input_stream, true);
+//        $data = array(
+//            'reply' => $raw['reply'],
+//            'date_created' => date('Y-m-d G:i:s'),
+//            'user_id' => $raw['user_id'],
+//            'comment_id' => $raw['user_id'],
+//        );
+//        if($this->UserModel->insert($data)){
+//            echo json_encode("SUCCESS");
+//        }
+//        else echo json_encode("FAILED");
+//    }
 }

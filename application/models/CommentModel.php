@@ -46,9 +46,12 @@ class CommentModel extends CI_Model
                 $reply_data[$ridx]['username'] = $ruser->row()->username;
                 $data[$idx]['replies'][$ridx] = $reply_data[$ridx];
             }
-
-
         }
         return $data;
+    }
+
+
+    public function insert($data){
+        $this->db->insert('comment_master',$data);
     }
 }

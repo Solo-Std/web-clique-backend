@@ -56,21 +56,23 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['api/user_master']['GET'] = 'UserController/index/';
 $route['api/user_master']['POST'] = 'UserController/create/';
-$route['api/user_master']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/user_master/login']['POST'] = 'UserController/login/';
-$route['api/user_master/login']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master/login']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/user_master/check_username']['POST'] = 'UserController/check_username/';
-$route['api/user_master/check_username']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master/check_username']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/user_master/check_email']['POST'] = 'UserController/check_email/';
-$route['api/user_master/check_email']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master/check_email']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/user_master/fb_login']['POST'] = 'UserController/fb_login/';
-$route['api/user_master/fb_login']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master/fb_login']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/user_master/gp_login']['POST'] = 'UserController/gp_login/';
-$route['api/user_master/gp_login']['OPTIONS'] = 'UserController/http_options/';
+$route['api/user_master/gp_login']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
 $route['api/post_master']['GET'] = 'PostController/index/';
 $route['api/post_master/(:num)']['GET'] = 'PostController/getOne/$1';
 
 $route['api/comment_master/(:num)']['GET'] = 'CommentController/index/$1';
+$route['api/comment_master/insert']['POST'] = 'CommentController/insert/';
+$route['api/comment_master/insert']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
 $route['api/reply_master/(:num)']['GET'] = 'ReplyController/index/$1';

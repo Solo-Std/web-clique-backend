@@ -19,4 +19,18 @@ class CommentController extends CI_Controller
     public function index($post_id){
         echo json_encode($this->CommentModel->getAll($post_id));
     }
+
+    public function insert(){
+        $raw = json_decode($this->input->raw_input_stream, true);
+        $data = array(
+            'comment' => $raw['comment'],
+            'date_created' => date('Y-m-d H:i:s',strtotime("+7 hours")),
+            'user_id' => $raw['user_id'],
+            'post_id' => $raw['post_id']
+        );
+        if($this->CommentModel->insert($data)){
+            echo json_encode("SUCCESS");
+        }
+        else echo json_encode("FAILED");
+    }
 }
