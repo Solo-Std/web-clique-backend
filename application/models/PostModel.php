@@ -33,6 +33,34 @@ class PostModel extends CI_Model
         return $data;
     }
 
+    public function getProfilePosts($id)
+    {
+        $data = array();
+        $this->db->order_by('date_created',"DESC");
+        $this->db->where('user_id',$id);
+        $post = $this->db->get('post_master');
+
+        foreach($post->result() as $idx=>$row)
+        {
+            $this->db->select('title');
+            $this->db->where('clique_id',$post->row()->clique_id);
+            $clique = $this->db->get('clique_master');
+
+            $this->db->select('username');
+            $this->db->where('user_id',$id);
+            $user = $this->db->get('user_master');
+
+
+
+            $data[$idx]['post_id'] = $post->row($idx)->post_id;
+            $data[$idx]['post_title'] = $post->row($idx)->title;
+            $data[$idx]['date_created'] = $post->row($idx)->date_created;
+            $data[$idx]['clique_name'] = $clique->row($idx)->title;
+            $data[$idx]['username'] = $user->row($idx)->username;
+        }
+        return $data;
+    }
+
     public function getOne($id){
         $data = array();
         $this->db->order_by('date_created', "DESC");

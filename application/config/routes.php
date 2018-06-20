@@ -76,3 +76,5 @@ $route['api/comment_master/insert']['POST'] = 'CommentController/insert/';
 $route['api/comment_master/insert']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
 $route['api/reply_master/(:num)']['GET'] = 'ReplyController/index/$1';
+
+$route['api/fetch_user_posts/(:num)']['GET'] = 'PostController/getProfilePosts/$1';
