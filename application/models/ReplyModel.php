@@ -13,7 +13,7 @@ class ReplyModel extends CI_Model
         parent::__construct();
     }
 
-    public function insert(){
-
+    public function insert($data){
+        $this->db->insert('comment_master',$data);
     }
 }
