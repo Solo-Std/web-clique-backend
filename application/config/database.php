@@ -74,14 +74,16 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 //$db['default']['dsn'] = 'pgsql:host=localhost;port=5432;dbname=cliquedb;user=postgres;password=root';
+$url = parse_url(getenv("DATABASE_URL"));
 
-$dsn = "pgsql:"
-    . "host=ec2-107-21-103-146.compute-1.amazonaws.com;"
-    . "dbname=d9rt80bvfslodo;"
-    . "user=qoihfcplvtalpj;"
-    . "port=5432;"
-    . "sslmode=require;"
-    . "password=eb23d51c8214132458aea30ddd9336969db9403c24da89c4da0118786f463e55";
+$db['default']['dsn'] = "pgsql:" . sprintf(
+        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+        $url["host"],
+        $url["port"],
+        $url["user"],
+        $url["pass"],
+        ltrim($url["path"], "/")
+    );
 
 $db['default']['dbdriver'] = 'pdo';
 $db['default']['dbprefix'] = '';
