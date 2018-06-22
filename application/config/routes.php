@@ -58,6 +58,7 @@ $route['api/user_master']['GET'] = 'UserController/index/';
 $route['api/user_master']['POST'] = 'UserController/create/';
 $route['api/user_master']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/user_master/login']['POST'] = 'UserController/login/';
+$route['api/user_master/login/check_session']['POST'] = 'UserController/check_session';
 $route['api/user_master/login']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/user_master/check_username']['POST'] = 'UserController/check_username/';
 $route['api/user_master/check_username']['OPTIONS'] = 'HttpOptionsController/http_options/';

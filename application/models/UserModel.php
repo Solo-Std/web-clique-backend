@@ -71,7 +71,7 @@ class UserModel extends CI_Model
     public function check_email($email){
         $this->db->where('email',$email);
         $query = $this->db->get('user_master');
-        return ($query->num_rows() > 0)?false:true;
+        return $query->num_rows()?false:true;
     }
 
     public function login($data){
@@ -81,4 +81,16 @@ class UserModel extends CI_Model
         return ($query->num_rows() > 0)?true:false;
     }
 
+    // SESSION TOKEN MANAGER
+    public function check_session_token($token){
+        $this->db->where('session_token',$token);
+        $query = $this->db->get('user_master');
+        return ($query->num_rows() > 0)?true:false;
+    }
+
+    public function update_session_token($data){
+        $this->db->set('session_token', $data['__ci_last_regenerate']);
+        $this->db->where('username', $data['username']);
+        $this->db->update('user_master');
+    }
 }

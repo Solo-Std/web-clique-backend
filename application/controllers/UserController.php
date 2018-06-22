@@ -27,7 +27,7 @@ class UserController extends CI_Controller
             'username' => $raw['username'],
             'password' => md5($raw['password']),
             'email' => $raw['email'],
-            'date_created' => date('Y-m-d G:i:s')
+            'date_created' => date('Y-m-d G:i:s',strtotime("+7 hours"))
         );
         if($this->UserModel->insert($data)){
             echo json_encode("SUCCESS");
@@ -39,12 +39,40 @@ class UserController extends CI_Controller
         $raw = json_decode($this->input->raw_input_stream, true);
         $data = array(
             'username' => $raw['username'],
-            'password' => md5($raw['password'])
+            'password' => ($raw['password'])
         );
+
+        $session_data = array(
+            'username' => $raw['username']
+        );
+
         if($this->UserModel->login($data)){
-            echo json_encode("SUCCESS");
+            $this->session->set_userdata($session_data);
+            if($this->UserModel->check_session_token($this->session->__ci_last_regenerate)){
+                $this->session->sess_destroy();
+                $this->session->set_userdata($session_data);
+            }
+            else{
+                $this->UserModel->update_session_token($this->session->userdata);
+            }
+            echo json_encode($this->session->userdata);
         }
         else echo json_encode("FAILED");
+    }
+
+    public function check_session(){
+        $raw = json_decode($this->input->raw_input_stream, true);
+        $data = array(
+            'session_token' => $raw['session_token']
+        );
+        if($this->UserModel->check_session_token($data['session_token'])){
+            echo json_encode("SUCCESS");
+            return true;
+        }
+        else {
+            echo json_encode("FAILED");
+            return false;
+        }
     }
 
     public function fb_login(){
