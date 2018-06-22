@@ -14,6 +14,6 @@ class ReplyModel extends CI_Model
     }
 
     public function insert($data){
-        $this->db->insert('comment_master',$data);
+        $this->db->insert('reply_master',$data);
     }
 }
