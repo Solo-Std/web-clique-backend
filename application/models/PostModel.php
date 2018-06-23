@@ -38,6 +38,7 @@ class PostModel extends CI_Model
         $this->db->select('clique_id');
         $this->db->where('title',$clique_name);
         $clique_id = $this->db->get('clique_master');
+        echo json_encode($clique_id);
 
         $this->db->where('clique_id',$clique_id->row()->clique_id);
         $this->db->order_by('date_created', "DESC");
