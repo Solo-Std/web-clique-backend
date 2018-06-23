@@ -101,16 +101,5 @@ class UserModel extends CI_Model
         $this->db->update('user_master');
     }
 
-    public function getUserId($username)
-    {
 
-        $this->db->select('user_id');
-        $this->db->from('user_master');
-        $this->db->where('username',$username);
-        $userid = $this->db->get()->first_row();
-
-        $data = $userid->user_id;
-        return $data;
-
-    }
 }
