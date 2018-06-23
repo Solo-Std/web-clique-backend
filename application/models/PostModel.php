@@ -42,7 +42,7 @@ class PostModel extends CI_Model
         $this->db->where('username',$username);
         $userid = $this->db->get()->first_row();
         $id = $userid->user_id;
-        
+
         $this->db->order_by('date_created',"DESC");
         $this->db->where('user_id',$id);
         $post = $this->db->get('post_master');

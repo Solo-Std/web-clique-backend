@@ -127,8 +127,5 @@ class UserController extends CI_Controller
         else echo json_encode("FAILED");
     }
 
-    public function getUserId($username)
-    {
-        echo json_encode($this->UserModel->getUserId($username));
-    }
+
 }
