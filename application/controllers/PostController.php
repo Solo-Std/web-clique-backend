@@ -24,6 +24,10 @@ class PostController extends CI_Controller
         echo json_encode($this->PostModel->getAll());
     }
 
+    public function get_clique_post($id){
+        echo json_encode($this->PostModel->get_all_by_clique_id($id));
+    }
+
     public function getOne($id){
         echo json_encode($this->PostModel->getOne($id));
     }
