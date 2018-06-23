@@ -35,7 +35,12 @@ class PostModel extends CI_Model
 
     public function get_all_by_clique_id($clique_name){
         $data = array(array());
-        $this->db->where("title",$clique_name);
+        $this->db->select('clique_id');
+        $this->db->where('title',$clique_name);
+        $clique_id = $this->db->get('clique_master')->row()->clique_id;
+
+
+        $this->db->where('clique_id',$clique_id);
         $this->db->order_by('date_created', "DESC");
         $post = $this->db->get('post_master');
         foreach($post->result() as $idx=>$row){
