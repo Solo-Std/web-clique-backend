@@ -37,7 +37,7 @@ class PostModel extends CI_Model
         $data = array(array());
         $this->db->select('clique_id');
         $this->db->where('title',$clique_name);
-        $clique_id = $this->db->get('clique_master')->row()->clique_id;
+        $clique_id = $this->db->get('clique_master')->first_row()->clique_id;
 
 
         $this->db->where('clique_id',$clique_id);
