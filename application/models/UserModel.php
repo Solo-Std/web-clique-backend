@@ -82,7 +82,14 @@ class UserModel extends CI_Model
     }
 
     // SESSION TOKEN MANAGER
-    public function check_session_token($token){
+    public function check_existing_session($data){
+        $this->db->where('username',$data['username']);
+        $this->db->where('session_token',$data['session_token']);
+        $query = $this->db->get('user_master');
+        return ($query->num_rows() > 0)?true:false;
+    }
+
+    public function check_if_session_exists($token){
         $this->db->where('session_token',$token);
         $query = $this->db->get('user_master');
         return ($query->num_rows() > 0)?true:false;

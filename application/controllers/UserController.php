@@ -30,7 +30,7 @@ class UserController extends CI_Controller
             'date_created' => date('Y-m-d G:i:s',strtotime("+7 hours"))
         );
         if($this->UserModel->insert($data)){
-            echo json_encode("SUCCESS");
+            $this->update_session($raw['username']);
         }
         else echo json_encode("FAILED");
     }
@@ -41,21 +41,9 @@ class UserController extends CI_Controller
             'username' => $raw['username'],
             'password' => ($raw['password'])
         );
-
-        $session_data = array(
-            'username' => $raw['username']
-        );
-
+        
         if($this->UserModel->login($data)){
-            $this->session->set_userdata($session_data);
-            if($this->UserModel->check_session_token($this->session->__ci_last_regenerate)){
-                $this->session->sess_destroy();
-                $this->session->set_userdata($session_data);
-            }
-            else{
-                $this->UserModel->update_session_token($this->session->userdata);
-            }
-            echo json_encode($this->session->userdata);
+            $this->update_session($raw['username']);
         }
         else echo json_encode("FAILED");
     }
@@ -63,16 +51,29 @@ class UserController extends CI_Controller
     public function check_session(){
         $raw = json_decode($this->input->raw_input_stream, true);
         $data = array(
-            'session_token' => $raw['session_token']
+            'session_token' => $raw['session_token'],
+            'username' => ($raw['username'])
         );
-        if($this->UserModel->check_session_token($data['session_token'])){
+        if($this->UserModel->check_existing_session($data)){
             echo json_encode("SUCCESS");
-            return true;
         }
-        else {
-            echo json_encode("FAILED");
-            return false;
+        else echo json_encode("FAILED");
+    }
+
+    public function update_session($username){
+        $session_data = array(
+            'username' => $username
+        );
+
+        $this->session->set_userdata($session_data);
+        if($this->UserModel->check_if_session_exists($this->session->__ci_last_regenerate)){
+            $this->session->sess_destroy();
+            $this->session->set_userdata($session_data);
         }
+        else{
+            $this->UserModel->update_session_token($this->session->userdata);
+        }
+        echo json_encode($this->session->userdata);
     }
 
     public function fb_login(){
