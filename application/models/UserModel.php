@@ -76,7 +76,7 @@ class UserModel extends CI_Model
 
     public function login($data){
         $this->db->where('username',$data['username']);
-        $this->db->where('password',$data['password']);
+        $this->db->where('password',md5($data['password']));
         $query = $this->db->get('user_master');
         return ($query->num_rows() > 0)?true:false;
     }
