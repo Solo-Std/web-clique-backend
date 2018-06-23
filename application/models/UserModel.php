@@ -109,7 +109,7 @@ class UserModel extends CI_Model
         $this->db->where('username',$username);
         $userid = $this->db->get()->first_row();
 
-        $data = $userid->row()->user_id;
+        $data = $userid->user_id;
         return $data;
 
     }
