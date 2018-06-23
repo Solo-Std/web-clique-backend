@@ -80,6 +80,6 @@ $route['api/comment_master/insert']['OPTIONS'] = 'HttpOptionsController/http_opt
 $route['api/reply_master/insert']['POST'] = 'ReplyController/insert/';
 $route['api/reply_master/insert']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
-$route['api/post_master/fetch_user_posts/(:num)']['GET'] = 'PostController/getProfilePosts/$1';
+$route['api/post_master/fetch_user_posts/(:any)']['GET'] = 'PostController/getProfilePosts/$1';
 
 $route['api/user_master/get_user_id/(:any)']['GET'] = 'UserController/getUserId/$1';

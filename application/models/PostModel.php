@@ -33,9 +33,15 @@ class PostModel extends CI_Model
         return $data;
     }
 
-    public function getProfilePosts($id)
+    public function getProfilePosts($username)
     {
         $data = array();
+
+        $this->db->select('user_id');
+        $this->db->from('user_master');
+        $this->db->where('username',$username);
+        $id = $this->db->get()->first_row()->user_id;
+
         $this->db->order_by('date_created',"DESC");
         $this->db->where('user_id',$id);
         $post = $this->db->get('post_master');

@@ -16,8 +16,8 @@ class PostController extends CI_Controller
         $this->load->model('PostModel');
     }
 
-    public function getProfilePosts($user_id){
-        echo json_encode($this->PostModel->getProfilePosts($user_id));
+    public function getProfilePosts($username){
+        echo json_encode($this->PostModel->getProfilePosts($username));
     }
 
     public function index(){
