@@ -81,7 +81,7 @@ $route['api/comment_master/insert']['OPTIONS'] = 'HttpOptionsController/http_opt
 $route['api/reply_master/insert']['POST'] = 'ReplyController/insert/';
 $route['api/reply_master/insert']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
-
+$route['api/subscribed_clique_relation/getsubscribedclique/(:num)']['GET'] = 'SubscribedCliqueController/getSubscribedClique/$1';
 
 $route['api/post_master/fetch_user_posts/(:any)']['GET'] = 'PostController/getProfilePosts/$1';
 
