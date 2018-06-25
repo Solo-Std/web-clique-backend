@@ -14,11 +14,11 @@ class UserFriendsModel extends CI_Model
     }
 
     public function get_friends($user_id){
-        $query = "SELECT CASE WHEN user_1_id=7 THEN user_2_id
-                              WHEN user_2_id=7 THEN user_1_id
+        $query = "SELECT CASE WHEN user_1_id={$user_id} THEN user_2_id
+                              WHEN user_2_id={$user_id} THEN user_1_id
                          END
                   FROM user_friends_relation AS friends
-                  WHERE user_1_id=7 OR user_2_id=7";
+                  WHERE user_1_id={$user_id} OR user_2_id={$user_id}";
         $result = $this->db->query($query);
 
         $data = array();
