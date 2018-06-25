@@ -23,7 +23,7 @@ class UserFriendsModel extends CI_Model
 
         $data = array();
         foreach($result->result() as $idx=>$row) {
-            $data[$idx] = $row['friends'];
+            $data[$idx] = $result->row($idx)->friends;
         }
         return $data;
     }

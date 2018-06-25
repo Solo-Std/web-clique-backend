@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c59cd2-fc5c-4e6b-ab58-5a5a9cb03ad3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/application/controllers/UserFriendsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/UserFriendsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/UserFriendsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/UserFriendsModel.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -102,7 +102,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserFriendsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserFriendsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/UserFriendsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -111,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserFriendsModel.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserFriendsModel.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/UserFriendsModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+            <state relative-caret-position="408">
+              <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -155,8 +155,8 @@
         <option value="$PROJECT_DIR$/application/controllers/PostController.php" />
         <option value="$PROJECT_DIR$/application/models/PostModel.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/models/UserFriendsModel.php" />
         <option value="$PROJECT_DIR$/application/controllers/UserFriendsController.php" />
+        <option value="$PROJECT_DIR$/application/models/UserFriendsModel.php" />
       </list>
     </option>
   </component>
@@ -302,12 +302,12 @@
       <workItem from="1529388572986" duration="7799000" />
       <workItem from="1529586930764" duration="7851000" />
       <workItem from="1529760679200" duration="4331000" />
-      <workItem from="1529911407680" duration="2462000" />
+      <workItem from="1529911407680" duration="2545000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83620000" />
+    <option name="totallyTimeSpent" value="83703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -675,13 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/UserFriendsModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/SubscribedCliqueController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -700,6 +693,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/UserFriendsModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
         </state>
       </provider>
     </entry>
