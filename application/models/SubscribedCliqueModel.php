@@ -21,7 +21,7 @@ class SubscribedCliqueModel extends CI_Model
         $subscribe = $this->db->get('subscribed_clique_relation');
 
         foreach($subscribe->result() as $idx=>$row){
-            $data[$idx]['clique_id'] = $row->clique_id;
+            $data[$idx]['clique_id'] = json_decode($row->clique_id);
         }
 
         return $data;
