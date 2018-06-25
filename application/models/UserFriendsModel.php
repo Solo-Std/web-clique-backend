@@ -19,7 +19,7 @@ class UserFriendsModel extends CI_Model
                               "WHEN user_2_id=".$user_id." THEN user_1_id ".
                          "END AS friends ".
                   "FROM user_friends_relation ".
-                  "WHERE user_1_id=".$user_id." OR user_2_id=".$user_id;
+                  "WHERE user_1_id=".$user_id." OR user_2_id=".$user_id.");";
         $result = $this->db->query($query);
         return $result->result_array();
     }
@@ -27,8 +27,10 @@ class UserFriendsModel extends CI_Model
     public function is_friend($visitor, $visited){
         $uid_1 = $this->UserModel->get_user_id($visitor);
         $uid_2 = $this->UserModel->get_user_id($visited);
+        echo json_encode($uid_1);
+        echo json_encode($uid_2);
 
-        $query = "SELECT *
+        $query = "SELECT * 
                     FROM user_friends_relation
                     WHERE (user_1_id=".$uid_1." AND user_2_id=".$uid_2.") 
                     OR (user_1_id=".$uid_2." AND user_2_id=".$uid_1.");";
@@ -52,10 +54,10 @@ class UserFriendsModel extends CI_Model
         $uid_1 = $this->UserModel->get_user_id($visitor);
         $uid_2 = $this->UserModel->get_user_id($visited);
 
-        $query = "DELETE
+        $query = "DELETE 
                     FROM user_friends_relation
                     WHERE (user_1_id=".$uid_1." AND user_2_id=".$uid_2.") 
-                    OR (user_1_id=".$uid_2." AND user_2_id=".$uid_1;
+                    OR (user_1_id=".$uid_2." AND user_2_id=".$uid_1.");";
         $this->db->query($query);
     }
 }
