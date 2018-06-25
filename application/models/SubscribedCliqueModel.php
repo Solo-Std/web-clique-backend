@@ -22,7 +22,7 @@ class SubscribedCliqueModel extends CI_Model
         $subscribe = $this->db->get('subscribed_clique_relation');
 
         foreach($subscribe->result() as $idx=>$row){
-            $data[$idx]['user_id'] = $row->user_id;
+            $data[$idx]['user_id'] = $row($idx)->user_id;
         }
 
         return $data;
