@@ -27,8 +27,6 @@ class UserFriendsModel extends CI_Model
     public function is_friend($visitor, $visited){
         $uid_1 = $this->UserModel->get_user_id($visitor);
         $uid_2 = $this->UserModel->get_user_id($visited);
-        echo json_encode($uid_1);
-        echo json_encode($uid_2);
 
         $query = "SELECT * 
                     FROM user_friends_relation
