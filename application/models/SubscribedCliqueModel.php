@@ -14,7 +14,6 @@ class SubscribedCliqueModel extends CI_Model
 
     public function getSubscribedClique($user_id)
     {
-        $temp = array();
         $data = array();
 
         $this->db->select('clique_id');
@@ -22,7 +21,7 @@ class SubscribedCliqueModel extends CI_Model
         $subscribe = $this->db->get('subscribed_clique_relation');
 
         foreach($subscribe->result() as $idx=>$row){
-            $temp[$idx]['clique_id'] = $row->clique_id;
+            $data[$idx]['clique_id'] = $row->clique_id;
         }
 
         return $data;
