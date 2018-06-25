@@ -15,14 +15,15 @@ class SubscribedCliqueModel extends CI_Model
 
     public function getSubscribedClique($user_id)
     {
-        $data = array(array());
+        $data = array();
 
         $this->db->select('clique_id');
         $this->db->where('user_id',$user_id);
         $subscribe = $this->db->get('subscribed_clique_relation');
 
         foreach($subscribe->result() as $idx=>$row){
-            $data[$idx]['user_id'] = $row($idx)->user_id;
+
+            $data[$idx]['user_id'] = $subscribe->$row($idx)->user_id;
         }
 
         return $data;
