@@ -13,7 +13,7 @@ class UserFriendsModel extends CI_Model
         parent::__construct();
     }
 
-    function get_friends($user_id){
+    public function get_friends($user_id){
         $query = "SELECT CASE WHEN user_1_id=7 THEN user_2_id
                               WHEN user_2_id=7 THEN user_1_id
                          END
