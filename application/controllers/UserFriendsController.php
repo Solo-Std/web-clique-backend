@@ -17,6 +17,6 @@ class UserFriendsController extends CI_Controller
     }
 
     public function get_friends($user_id){
-        echo json_encode($this->db->get_friends($user_id));
+        echo json_encode($this->UserFriendsModel->get_friends($user_id));
     }
 }
