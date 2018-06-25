@@ -23,8 +23,8 @@ class SubscribedCliqueModel extends CI_Model
         foreach($subscribe->result() as $idx=>$row){
             $this->db->select('title');
             $this->db->where('clique_id',$row->clique_id);
-            $title = $this->db->get('title');
-            $data[$idx]['clique_id'] = $title->row()->title;
+            $title = $this->db->get('clique_master');
+            $data[$idx]['title'] = $title->row()->title;
         }
 
         return $data;
