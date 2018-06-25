@@ -14,7 +14,7 @@ class SubscribedCliqueModel extends CI_Model
 
     public function getSubscribedClique($user_id)
     {
-        $data = array(array());
+        $data = array();
 
         $this->db->select('clique_id');
         $this->db->where('user_id',$user_id);

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5c59cd2-fc5c-4e6b-ab58-5a5a9cb03ad3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/application/models/SubscribedCliqueModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/SubscribedCliqueModel.php" afterDir="false" />
-    </list>
+    <list default="true" id="a5c59cd2-fc5c-4e6b-ab58-5a5a9cb03ad3" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +51,7 @@
           <file leaf-file-name="PostModel.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/application/models/PostModel.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="731">
+                <state relative-caret-position="-64">
                   <caret line="78" selection-start-line="78" selection-end-line="78" />
                 </state>
               </provider>
@@ -76,7 +74,7 @@
             <entry file="file://$PROJECT_DIR$/application/models/SubscribedCliqueModel.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="69">
-                  <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+                  <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -284,7 +282,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87116000" />
+    <option name="totallyTimeSpent" value="87303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -666,7 +664,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/PostModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
+        <state relative-caret-position="-64">
           <caret line="78" selection-start-line="78" selection-end-line="78" />
         </state>
       </provider>
@@ -691,7 +689,7 @@
     <entry file="file://$PROJECT_DIR$/application/models/SubscribedCliqueModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
