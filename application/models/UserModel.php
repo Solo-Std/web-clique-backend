@@ -85,7 +85,7 @@ class UserModel extends CI_Model
     public function get_user_id($username){
         $this->db->where('username',$username);
         $query = $this->db->get('user_master');
-        return $query->result()[0];
+        return $query->result()[0]->user_id;
     }
 
     // SESSION TOKEN MANAGER
