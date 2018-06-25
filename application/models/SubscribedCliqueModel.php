@@ -24,7 +24,8 @@ class SubscribedCliqueModel extends CI_Model
             $this->db->select('title');
             $this->db->where('clique_id',$row->clique_id);
             $title = $this->db->get('clique_master');
-            $data[$idx]['title'] = $title->row()->title;
+
+            $data[$idx]['title'] = $title->row($idx)->title;
         }
 
         return $data;
