@@ -73,17 +73,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-//$db['default']['dsn'] = 'pgsql:host=localhost;port=5432;dbname=cliquedb;user=postgres;password=root';
-$url = parse_url(getenv("DATABASE_URL"));
-
-$db['default']['dsn'] = "pgsql:" . sprintf(
-        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-        $url["host"],
-        $url["port"],
-        $url["user"],
-        $url["pass"],
-        ltrim($url["path"], "/")
-    );
+$db['default']['dsn'] = 'pgsql:host=localhost;port=5432;dbname=cliquedb;user=postgres;password=root';
+//$url = parse_url(getenv("DATABASE_URL"));
+//
+//$db['default']['dsn'] = "pgsql:" . sprintf(
+//        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+//        $url["host"],
+//        $url["port"],
+//        $url["user"],
+//        $url["pass"],
+//        ltrim($url["path"], "/")
+//    );
 
 $db['default']['dbdriver'] = 'pdo';
 $db['default']['dbprefix'] = '';
