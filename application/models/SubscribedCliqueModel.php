@@ -5,7 +5,6 @@
  * Date: 6/23/2018
  * Time: 8:42 PM
  */
-
 class SubscribedCliqueModel extends CI_Model
 {
     function __construct()
@@ -20,11 +19,9 @@ class SubscribedCliqueModel extends CI_Model
         $this->db->select('clique_id');
         $this->db->where('user_id',$user_id);
         $subscribe = $this->db->get('subscribed_clique_relation');
+
         foreach($subscribe->result() as $idx=>$row){
-            $this->db->select('clique_id');
-            $this->db->where('user_id',$subscribe->row()->user_id);
-            $query = $this->db->get('subscribed_clique_relation');
-            $data[$idx]['user_id'] = $query->row($idx)->clique_id;
+            $data[$idx]['user_id'] = $row->user_id;
         }
 
         return $data;
