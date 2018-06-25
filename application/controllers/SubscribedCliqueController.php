@@ -15,4 +15,8 @@ class SubscribedCliqueController extends CI_Controller
         $this->load->database();
         $this->load->model('SubscribedCliqueModel');
     }
+
+    public function getSubscribedClique($user_id){
+        echo json_encode($this->SubscribedCliqueModel->getSubscribedClique($user_id));
+    }
 }
