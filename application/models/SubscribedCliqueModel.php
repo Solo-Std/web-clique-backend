@@ -14,24 +14,14 @@ class SubscribedCliqueModel extends CI_Model
 
     public function getSubscribedClique($user_id)
     {
-        $temp = array();
         $data = array();
 
         $this->db->select('clique_id');
         $this->db->where('user_id',$user_id);
-        $subscribeID = $this->db->get('subscribed_clique_relation');
+        $subscribe = $this->db->get('subscribed_clique_relation');
 
-        foreach($subscribeID->result() as $idx=>$row){
-            $temp[$idx]['clique_id'] = $row->clique_id;
-        }
-
-        $this->db->select('title');
-        $this->db->where('clique_id', $temp);
-        $subscribe_title = $this->db->get('clique_master');
-
-
-        foreach($subscribe_title->result() as $idx=>$row){
-            $data[$idx]['title'] = $row->title;
+        foreach($subscribe->result() as $idx=>$row){
+            $data[$idx]['clique_id'] = $row->clique_id;
         }
 
         return $data;
