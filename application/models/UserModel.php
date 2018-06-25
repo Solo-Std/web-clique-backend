@@ -83,8 +83,10 @@ class UserModel extends CI_Model
 
     // UTIL
     public function get_user_id($username){
+        $this->db->select('user_id');
+        $this->db->from('user_master');
         $this->db->where('username',$username);
-        $query = $this->db->get('user_master');
+        $query = $this->db->get();
         return $query->result()[0]->user_id;
     }
 
