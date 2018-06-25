@@ -20,10 +20,11 @@ class SubscribedCliqueModel extends CI_Model
         $this->db->select('clique_id');
         $this->db->where('user_id',$user_id);
         $subscribe = $this->db->get('subscribed_clique_relation');
-
         foreach($subscribe->result() as $idx=>$row){
-
-            $data[$idx]['user_id'] = $subscribe->row($idx)->user_id;
+            $this->db->select('clique_id');
+            $this->db->where('user_id',$subscribe->row()->user_id);
+            $query = $this->db->get('subscribed_clique_relation');
+            $data[$idx]['user_id'] = $query->row($idx)->clique_id;
         }
 
         return $data;
