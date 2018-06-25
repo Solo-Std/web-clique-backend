@@ -84,3 +84,5 @@ $route['api/reply_master/insert']['OPTIONS'] = 'HttpOptionsController/http_optio
 $route['api/post_master/fetch_user_posts/(:any)']['GET'] = 'PostController/getProfilePosts/$1';
 
 $route['api/user_master/get_user_id/(:any)']['GET'] = 'UserController/getUserId/$1';
+
+$route['api/user_friends_relation/(:num)']['GET'] = 'UserFriendsController/get_friends/$1';
