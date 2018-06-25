@@ -11,6 +11,7 @@ class UserFriendsModel extends CI_Model
     function __construct()
     {
         parent::__construct();
+        $this->load->model('UserModel');
     }
 
     public function get_friends($user_id){
@@ -24,13 +25,8 @@ class UserFriendsModel extends CI_Model
     }
 
     public function is_friend($visitor, $visited){
-        $this->db->select('user_id');
-        $this->db->where('username',$visitor);
-        $uid_1 = $this->db->get('user_master')->row()->user_id;
-
-        $this->db->select('user_id');
-        $this->db->where('username',$visited);
-        $uid_2 = $this->db->get('user_master')->row()->user_id;
+        $uid_1 = $this->UserModel->get_user_id($visitor);
+        $uid_2 = $this->UserModel->get_user_id($visited);
 
         $query = "SELECT *
                     FROM user_friends_relation
@@ -38,5 +34,28 @@ class UserFriendsModel extends CI_Model
                     OR (user_1_id=".$uid_2." AND user_2_id=".$uid_1.");";
         $result = $this->db->query($query);
         return $result->num_rows()>0?true:false;
+    }
+
+    public function add_friend($visitor, $visited){
+        $uid_1 = $this->UserModel->get_user_id($visitor);
+        $uid_2 = $this->UserModel->get_user_id($visited);
+
+        $data = array(
+            'user_1_id' => $uid_1,
+            'user_2_id' => $uid_2
+        );
+
+        $this->db->insert('user_friends_relation',$data);
+    }
+
+    public function unfriend($visitor, $visited){
+        $uid_1 = $this->UserModel->get_user_id($visitor);
+        $uid_2 = $this->UserModel->get_user_id($visited);
+
+        $query = "DELETE
+                    FROM user_friends_relation
+                    WHERE (user_1_id=".$uid_1." AND user_2_id=".$uid_2.") 
+                    OR (user_1_id=".$uid_2." AND user_2_id=".$uid_1;
+        $this->db->query($query);
     }
 }

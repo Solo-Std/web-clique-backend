@@ -23,4 +23,12 @@ class UserFriendsController extends CI_Controller
     public function is_friend($visitor, $visited){
         echo json_encode($this->UserFriendsModel->is_friend($visitor, $visited));
     }
+
+    public function add_friend($visitor, $visited){
+        echo json_encode($this->UserFriendsModel->add_friend($visitor,$visited));
+    }
+
+    public function unfriend($visitor, $visited){
+        echo json_encode($this->UserFriendsModel->unfriend($visitor,$visited));
+    }
 }

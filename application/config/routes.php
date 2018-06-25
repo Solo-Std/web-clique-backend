@@ -89,3 +89,5 @@ $route['api/user_master/get_user_id/(:any)']['GET'] = 'UserController/getUserId/
 
 $route['api/user_friends_relation/(:num)']['GET'] = 'UserFriendsController/get_friends/$1';
 $route['api/user_friends_relation/is_friend/(:any)/(:any)']['GET'] = 'UserFriendsController/is_friend/$1/$2';
+$route['api/user_friends_relation/add_friend/(:any)/(:any)']['GET'] = 'UserFriendsController/add_friend/$1/$2';
+$route['api/user_friends_relation/unfriend/(:any)/(:any)']['GET'] = 'UserFriendsController/unfriend/$1/$2';

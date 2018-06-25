@@ -81,6 +81,13 @@ class UserModel extends CI_Model
         return ($query->num_rows() > 0)?true:false;
     }
 
+    // UTIL
+    public function get_user_id($username){
+        $this->db->where('username',$username);
+        $query = $this->db->get('user_master');
+        return $query->result()[0];
+    }
+
     // SESSION TOKEN MANAGER
     public function check_existing_session($data){
         $this->db->where('username',$data['username']);
