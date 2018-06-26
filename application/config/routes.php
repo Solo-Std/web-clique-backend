@@ -87,6 +87,8 @@ $route['api/post_master/fetch_user_posts/(:any)']['GET'] = 'PostController/getPr
 
 $route['api/user_master/get_user_id/(:any)']['GET'] = 'UserController/getUserId/$1';
 
+$route['api/user_master/getpassword/(:any)']['GET'] = 'UserController/getPassword/$1';
+
 $route['api/user_friends_relation/(:num)']['GET'] = 'UserFriendsController/get_friends/$1';
 $route['api/user_friends_relation/is_friend/(:any)/(:any)']['GET'] = 'UserFriendsController/is_friend/$1/$2';
 $route['api/user_friends_relation/add_friend/(:any)/(:any)']['GET'] = 'UserFriendsController/add_friend/$1/$2';

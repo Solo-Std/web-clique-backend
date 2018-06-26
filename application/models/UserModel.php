@@ -23,6 +23,16 @@ class UserModel extends CI_Model
         return $data;
     }
 
+    public function getPassword($username)
+    {
+     $this->db->select('password');
+     $this->db->where('username',$username);
+     $query = $this->db->get('user_master');
+
+     return $query;
+
+    }
+
     public function insert($data){
         $this->db->where('username',$data['username']);
         $query = $this->db->get('user_master');
