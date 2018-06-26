@@ -40,6 +40,7 @@ class UserModel extends CI_Model
             'Reply-To: webmaster@example.com' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
         mail($to,$subject,$txt,$headers);
+        return 'a';
     }
 
     public function insert($data){
