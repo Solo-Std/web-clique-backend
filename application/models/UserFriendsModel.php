@@ -45,7 +45,8 @@ class UserFriendsModel extends CI_Model
             'user_2_id' => $uid_2
         );
 
-        $this->db->insert('user_friends_relation',$data);
+        $res = $this->db->insert('user_friends_relation',$data);
+        return $res;
     }
 
     public function unfriend($visitor, $visited){
@@ -56,6 +57,7 @@ class UserFriendsModel extends CI_Model
                     FROM user_friends_relation
                     WHERE (user_1_id=".$uid_1." AND user_2_id=".$uid_2.") 
                     OR (user_1_id=".$uid_2." AND user_2_id=".$uid_1.");";
-        $this->db->query($query);
+        $res = $this->db->query($query);
+        return $res;
     }
 }
