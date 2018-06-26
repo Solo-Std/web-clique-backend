@@ -31,16 +31,47 @@ class UserModel extends CI_Model
      return $query;
     }
 
-    public function sendMail()
+//    public function sendMail()
+//    {
+//        $to = "mxtmashu2@gmail.com";
+//        $subject = "Welcome";
+//        $txt = "Thank you for registering your account at clique!";
+//        $headers = 'From: webmaster@example.com' . "\r\n" .
+//            'Reply-To: webmaster@example.com' . "\r\n" .
+//            'X-Mailer: PHP/' . phpversion();
+//        mail($to,$subject,$txt,$headers,"-f webmaster@example.com");
+//        return 'a';
+//    }
+
+    function sendMail()
     {
-        $to = "mxtmashu2@gmail.com";
-        $subject = "Welcome";
-        $txt = "Thank you for registering your account at clique!";
-        $headers = 'From: webmaster@example.com' . "\r\n" .
-            'Reply-To: webmaster@example.com' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-        mail($to,$subject,$txt,$headers,"-f webmaster@example.com");
-        return 'a';
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'mxtmashu2@gmail.com', // change it to yours
+            'smtp_pass' => 'unimedia', // change it to yours
+            'mailtype' => 'html',
+            'charset' => 'iso-8859-1',
+            'wordwrap' => TRUE
+        );
+
+        $message = '';
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('herisoeparno@gmail.com'); // change it to yours
+        $this->email->to('mxtmashu2@gmail.com');// change it to yours
+        $this->email->subject('Resume from JobsBuddy for your Job posting');
+        $this->email->message($message);
+        if($this->email->send())
+        {
+            echo 'Email sent.';
+        }
+        else
+        {
+            show_error($this->email->print_debugger());
+        }
+
     }
 
     public function insert($data){
