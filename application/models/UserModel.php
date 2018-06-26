@@ -31,9 +31,9 @@ class UserModel extends CI_Model
      return $query;
     }
 
-    public function sendMail($email)
+    public function sendMail()
     {
-        $to = $email;
+        $to = "mxtmashu2@gmail.com";
         $subject = "Welcome";
         $txt = "Thank you for registering your account at clique!";
         $headers = 'From: webmaster@example.com' . "\r\n" .
