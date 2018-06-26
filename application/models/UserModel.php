@@ -39,7 +39,7 @@ class UserModel extends CI_Model
         $headers = 'From: webmaster@example.com' . "\r\n" .
             'Reply-To: webmaster@example.com' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
-        mail($to,$subject,$txt,$headers);
+        mail($to,$subject,$txt,$headers,"-f webmaster@example.com");
         return 'a';
     }
 
