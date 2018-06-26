@@ -25,15 +25,18 @@ class UserModel extends CI_Model
 
     public function getPassword($username)
     {
-        $data = array(array());
      $this->db->select('password');
      $this->db->where('username',$username);
      $query = $this->db->get('user_master');
-     foreach($query->result() as $idx=>$row)
-     {
-        $data[$idx]['password'] = $row->password;
-     }
-        return $data;
+     return $query;
+    }
+
+    public function sendMail($email)
+    {
+        $to = $email;
+        $subject = "Welcome";
+        $txt = "Thank you for registering your account at clique!";
+        mail($to,$subject,$txt);
     }
 
     public function insert($data){
