@@ -43,35 +43,58 @@ class UserModel extends CI_Model
 //        return 'a';
 //    }
 
-    function sendMail()
+//    function sendMail()
+//    {
+//        $config = Array(
+//            'protocol' => 'smtp',
+//            'smtp_host' => 'ssl://smtp.gmail.com',
+//            'smtp_port' => 465,
+//            'smtp_user' => 'mxtmashu2@gmail.com', // change it to yours
+//            'smtp_pass' => 'unimedia', // change it to yours
+//            'mailtype' => 'html',
+//            'charset' => 'iso-8859-1',
+//            'wordwrap' => TRUE
+//        );
+//
+//        $message = 'asdfg';
+//        $this->load->library('email', $config);
+//        $this->email->set_newline("\r\n");
+//        $this->email->from('herisoeparno@gmail.com'); // change it to yours
+//        $this->email->to('mxtmashu2@gmail.com');// change it to yours
+//        $this->email->subject('Resume from JobsBuddy for your Job posting');
+//        $this->email->message($message);
+//        if($this->email->send())
+//        {
+//            echo 'Email sent.';
+//        }
+//        else
+//        {
+//            show_error($this->email->print_debugger());
+//        }
+//
+//    }
+
+    public function sendMail()
     {
         $config = Array(
             'protocol' => 'smtp',
-            'smtp_host' => 'ssl://smtp.gmail.com',
-            'smtp_port' => 587,
-            'smtp_user' => 'mxtmashu2@gmail.com', // change it to yours
-            'smtp_pass' => 'unimedia', // change it to yours
-            'mailtype' => 'html',
-            'charset' => 'iso-8859-1',
-            'wordwrap' => TRUE
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'mxtmashu2@gmail.com',
+            'smtp_pass' => 'unimedia',
+            'mailtype'  => 'html',
+            'charset'   => 'iso-8859-1'
         );
-
-        $message = '';
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('herisoeparno@gmail.com'); // change it to yours
-        $this->email->to('mxtmashu2@gmail.com');// change it to yours
-        $this->email->subject('Resume from JobsBuddy for your Job posting');
-        $this->email->message($message);
-        if($this->email->send())
-        {
-            echo 'Email sent.';
-        }
-        else
-        {
-            show_error($this->email->print_debugger());
-        }
 
+        $this->email->initialize($config);
+        $this->email->from('mxtmashu2@gmail.com', 'admin');
+        $this->email->to('herisoeparno@gmail.com');
+        $this->email->subject('Registration Verification:');
+        $message = "Thanks for signing up! Your account has been created...!";
+
+        $result = $this->email->send();
     }
 
     public function insert($data){
