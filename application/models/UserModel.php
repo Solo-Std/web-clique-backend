@@ -89,7 +89,7 @@ class UserModel extends CI_Model
         $this->email->set_newline("\r\n");
 
         $this->email->initialize($config);
-        $this->email->from('mxtmashu2@gmail.com', 'admin');
+        $this->email->from('mxtmashu2@gmail.com');
         $this->email->to('herisoeparno@gmail.com');
         $this->email->subject('Registration Verification:');
         $message = "Thanks for signing up! Your account has been created...!";
