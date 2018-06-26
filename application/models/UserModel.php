@@ -48,7 +48,7 @@ class UserModel extends CI_Model
         $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.gmail.com',
-            'smtp_port' => 465,
+            'smtp_port' => 587,
             'smtp_user' => 'mxtmashu2@gmail.com', // change it to yours
             'smtp_pass' => 'unimedia', // change it to yours
             'mailtype' => 'html',
