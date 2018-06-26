@@ -29,7 +29,7 @@ class UserFriendsModel extends CI_Model
                     WHERE (user_1_id=".$visitor." AND user_2_id=".$visited.") 
                     OR (user_1_id=".$visited." AND user_2_id=".$visitor."));";
         $result = $this->db->query($query);
-        return $result->num_rows()>0?true:false;
+        return $result->result_array()[0]['exists'];
     }
 
     public function add_friend($visitor, $visited){
