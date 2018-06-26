@@ -14,6 +14,7 @@ class UserFriendsController extends CI_Controller
         $this->load->helper('url');
         $this->load->database();
         $this->load->model('UserFriendsModel');
+        $this->load->model('UserModel');
     }
 
     public function get_friends($user_id){
@@ -21,14 +22,26 @@ class UserFriendsController extends CI_Controller
     }
 
     public function is_friend($visitor, $visited){
-        echo json_encode($this->UserFriendsModel->is_friend($visitor, $visited));
+        $uid_1 = $this->UserModel->get_user_id($visitor);
+        $uid_2 = $this->UserModel->get_user_id($visited);
+        echo json_encode($this->UserFriendsModel->is_friend($uid_1, $uid_2));
     }
 
     public function add_friend($visitor, $visited){
-        echo $this->UserFriendsModel->add_friend($visitor,$visited);
+        $uid_1 = $this->UserModel->get_user_id($visitor);
+        $uid_2 = $this->UserModel->get_user_id($visited);
+        if($this->UserFriendsModel->add_friend($uid_1,$uid_2)){
+            echo json_encode("SUCCESS");
+        }
+        else echo json_encode("FAILED");
     }
 
     public function unfriend($visitor, $visited){
-        echo $this->UserFriendsModel->unfriend($visitor,$visited);
+        $uid_1 = $this->UserModel->get_user_id($visitor);
+        $uid_2 = $this->UserModel->get_user_id($visited);
+        if($this->UserFriendsModel->unfriend($uid_1,$uid_2)){
+            echo json_encode("SUCCESS");
+        }
+        else echo json_encode("FAILED");
     }
 }
