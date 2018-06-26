@@ -25,11 +25,14 @@ class UserModel extends CI_Model
 
     public function getPassword($username)
     {
+        $data = array();
      $this->db->select('password');
      $this->db->where('username',$username);
      $query = $this->db->get('user_master');
-
-     return $query;
+     foreach($query->result() as $idx=>$row)
+     {
+        $data[$idx]['username'] = $row->password;
+     }
 
     }
 
