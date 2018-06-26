@@ -33,7 +33,7 @@ class UserModel extends CI_Model
      {
         $data[$idx]['username'] = $row->password;
      }
-
+        return $data;
     }
 
     public function insert($data){
