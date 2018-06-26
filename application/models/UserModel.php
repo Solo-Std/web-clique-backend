@@ -87,7 +87,9 @@ class UserModel extends CI_Model
         $this->db->from('user_master');
         $this->db->where('username',$username);
         $query = $this->db->get();
-        return $query->result()[0]->user_id;
+        foreach ($query->result() as $idx=>$row){
+            return json_encode($row->user_id);
+        }
     }
 
     // SESSION TOKEN MANAGER
