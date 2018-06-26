@@ -36,7 +36,10 @@ class UserModel extends CI_Model
         $to = $email;
         $subject = "Welcome";
         $txt = "Thank you for registering your account at clique!";
-        mail($to,$subject,$txt);
+        $headers = 'From: webmaster@example.com' . "\r\n" .
+            'Reply-To: webmaster@example.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        mail($to,$subject,$txt,$headers);
     }
 
     public function insert($data){
