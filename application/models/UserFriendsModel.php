@@ -40,12 +40,9 @@ class UserFriendsModel extends CI_Model
         $uid_1 = $this->UserModel->get_user_id($visitor);
         $uid_2 = $this->UserModel->get_user_id($visited);
 
-        $data = array(
-            'user_1_id' => $uid_1,
-            'user_2_id' => $uid_2
-        );
-
-        $res = $this->db->insert('user_friends_relation',$data);
+        $query = "INSERT INTO user_friends_relation(user_1_id,user_2_id) ".
+                    "VALUES (".$uid_1.",".$uid_2.");";
+        $res = $this->db->query($query);
         return $res;
     }
 
