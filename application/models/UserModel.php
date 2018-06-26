@@ -95,6 +95,9 @@ class UserModel extends CI_Model
         $message = "Thanks for signing up! Your account has been created...!";
 
         $result = $this->email->send();
+        if (  $this->email->send()) {
+            echo "berhasil!";
+        }
     }
 
     public function insert($data){
