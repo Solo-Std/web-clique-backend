@@ -36,7 +36,7 @@ class UserFriendsModel extends CI_Model
         $query = "INSERT INTO user_friends_relation(user_1_id,user_2_id) ".
                     "VALUES (".$visitor.",".$visited.");";
         $res = $this->db->query($query);
-        return $res === 1;
+        return $res;
     }
 
     public function unfriend($visitor, $visited){
@@ -45,6 +45,6 @@ class UserFriendsModel extends CI_Model
                     WHERE (user_1_id=".$visitor." AND user_2_id=".$visited.") 
                     OR (user_1_id=".$visited." AND user_2_id=".$visitor.");";
         $res = $this->db->query($query);
-        return $res === 1;
+        return $res;
     }
 }
