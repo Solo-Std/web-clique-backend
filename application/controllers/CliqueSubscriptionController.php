@@ -22,6 +22,6 @@ class CliqueSubscriptionController extends CI_Controller
             'clique_name' => $raw['clique_name'],
             'user_id' => $raw['user_id']
         );
-        $this->CliqueSubscriptionModel->insert($data);
+        $this->CliqueSubscriptionModel->addSubscription($data);
     }
 }
