@@ -26,7 +26,7 @@ class ReplyController extends CI_Controller
         $data = array(
             'reply' => $raw['reply'],
             'date_created' => date('Y-m-d H:i:s',strtotime("+7 hours")),
-            'user_id' => $raw['user_id'],
+            'user_id' => $this->UserModel->get_user_id($raw['username']),
             'comment_id' => $raw['comment_id']
         );
         if($this->ReplyModel->insert($data)){
