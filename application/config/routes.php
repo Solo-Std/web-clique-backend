@@ -87,13 +87,10 @@ $route['api/post_master/fetch_user_posts/(:any)']['GET'] = 'PostController/getPr
 
 $route['api/user_master/get_user_id/(:any)']['GET'] = 'UserController/getUserId/$1';
 
-<<<<<<< HEAD
 $route['api/subscribed_clique_relation']['POST'] = 'CliqueSubscriptionController/addSubscription/';
-=======
 $route['api/user_master/getpassword/(:any)']['GET'] = 'UserController/getPassword/$1';
 
 $route['api/user_master/sendmail']['GET'] = 'UserController/sendMail';
->>>>>>> 34cf65d80a4979c9447da34ac2fdb36cb8509d40
 
 $route['api/user_friends_relation/(:num)']['GET'] = 'UserFriendsController/get_friends/$1';
 $route['api/user_friends_relation/is_friend']['POST'] = 'UserFriendsController/is_friend/';
