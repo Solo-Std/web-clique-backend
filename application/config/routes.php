@@ -76,7 +76,7 @@ $route['api/post_master']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/post_master/get_clique_post/(:any)']['GET'] = 'PostController/get_clique_post/$1';
 $route['api/post_master/fetch_user_posts/(:any)']['GET'] = 'PostController/getProfilePosts/$1';
 
-$route['api/comment_master']['POST'] = 'CommentController/insert/';
+$route['api/comment_master']['POST'] = 'CommentController/index/';
 $route['api/comment_master']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/comment_master/insert']['POST'] = 'CommentController/insert/';
 $route['api/comment_master/insert']['OPTIONS'] = 'HttpOptionsController/http_options/';
