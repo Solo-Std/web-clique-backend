@@ -97,6 +97,7 @@ $route['api/user_friends_relation/add_friend']['OPTIONS'] = 'HttpOptionsControll
 $route['api/user_friends_relation/unfriend']['POST'] = 'UserFriendsController/unfriend/';
 $route['api/user_friends_relation/unfriend']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
+$route['api/subscribed_clique_relation/checksubscription/(:num)/(:any)']['GET'] = 'CliqueSubscriptionController/checkSubscription/$1/$2';
 $route['api/subscribed_clique_relation']['POST'] = 'CliqueSubscriptionController/addSubscription/';
 $route['api/subscribed_clique_relation']['OPTIONS'] = 'HttpOptionsController/http_options/';
 

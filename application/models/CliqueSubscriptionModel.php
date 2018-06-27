@@ -26,4 +26,27 @@ class CliqueSubscriptionModel extends CI_Model
 
         $this->db->insert('subscribed_clique_relation', $subscription);
     }
+
+    public function checkSubscription($user_id, $clique_name){
+        $data = array();
+
+        $this->db->select('clique_id');
+        $this->db->where('title', $clique_name);
+        $clique = $this->db->get('clique_master');
+
+        foreach($clique->result() as $idx=>$row){
+            $this->db->select('clique_id');
+            $this->db->where('clique_id', $clique->result()[0]->clique_id);
+            $subbedClique = $this->db->get('subscribed_clique_relation');
+
+            $data[$idx]['cliques'] = $subbedClique->row($idx)->clique_id;
+        }
+
+        if (count($data)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
