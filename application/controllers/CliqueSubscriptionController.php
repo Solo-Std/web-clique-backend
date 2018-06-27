@@ -17,7 +17,7 @@ class CliqueSubscriptionController extends CI_Controller
     }
 
     public function addSubscription(){
-//        $raw =  json_decode($this->input->raw_input_stream, true);
+        $raw =  json_decode($this->input->raw_input_stream, true);
 //        $data = array(
 //            'clique_name' => $raw['clique_name'],
 //            'user_id' => $raw['user_id']
