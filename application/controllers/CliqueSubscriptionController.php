@@ -23,6 +23,6 @@ class CliqueSubscriptionController extends CI_Controller
             'user_id' => $raw['user_id']
         );
 
-        echo json_encode($this->SubscribedCliqueModel->getSubscribedClique($data));
+        //echo json_encode($this->SubscribedCliqueModel->getSubscribedClique($data));
     }
 }
