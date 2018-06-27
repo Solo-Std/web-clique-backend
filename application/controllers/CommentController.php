@@ -14,6 +14,7 @@ class CommentController extends CI_Controller
         $this->load->helper('url');
         $this->load->database();
         $this->load->model('CommentModel');
+        $this->load->model('UserModel');
     }
 
     public function index($post_id){
@@ -25,7 +26,7 @@ class CommentController extends CI_Controller
         $data = array(
             'comment' => $raw['comment'],
             'date_created' => date('Y-m-d H:i:s',strtotime("+7 hours")),
-            'user_id' => $raw['user_id'],
+            'user_id' => $this->UserModel->get_user_id($raw['username']),
             'post_id' => $raw['post_id']
         );
         if($this->CommentModel->insert($data)){
