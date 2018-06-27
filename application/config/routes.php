@@ -81,13 +81,10 @@ $route['api/comment_master/insert']['OPTIONS'] = 'HttpOptionsController/http_opt
 $route['api/reply_master/insert']['POST'] = 'ReplyController/insert/';
 $route['api/reply_master/insert']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
-$route['api/subscribed_clique_relation/getsubscribedclique/(:num)']['GET'] = 'SubscribedCliqueController/getSubscribedClique/$1';
-
 $route['api/post_master/fetch_user_posts/(:any)']['GET'] = 'PostController/getProfilePosts/$1';
 
 $route['api/user_master/get_user_id/(:any)']['GET'] = 'UserController/getUserId/$1';
 
-$route['api/subscribed_clique_relation']['POST'] = 'CliqueSubscriptionController/addSubscription/';
 $route['api/user_master/getpassword/(:any)']['GET'] = 'UserController/getPassword/$1';
 
 $route['api/user_master/sendmail']['GET'] = 'UserController/sendMail';
@@ -98,6 +95,7 @@ $route['api/user_friends_relation/is_friend']['OPTIONS'] = 'HttpOptionsControlle
 $route['api/user_friends_relation/add_friend']['POST'] = 'UserFriendsController/add_friend/';
 $route['api/user_friends_relation/add_friend']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/user_friends_relation/unfriend']['POST'] = 'UserFriendsController/unfriend/';
-$route['api/user_friends_relation/unfriend']['OPTIONS'] = 'HttpOptionsController/http_options/';$route['api/user_friends_relation/unfriend']['OPTIONS'] = 'HttpOptionsController/http_options/';
+$route['api/user_friends_relation/unfriend']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
 $route['api/subscribed_clique_relation']['POST'] = 'CliqueSubscriptionController/addSubscription/';
+$route['api/subscribed_clique_relation/getsubscribedclique/(:num)']['GET'] = 'SubscribedCliqueController/getSubscribedClique/$1';
