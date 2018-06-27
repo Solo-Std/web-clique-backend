@@ -11,7 +11,6 @@ class UserFriendsModel extends CI_Model
     function __construct()
     {
         parent::__construct();
-        $this->load->model('UserModel');
     }
 
     public function get_friends($user_id){
@@ -25,37 +24,27 @@ class UserFriendsModel extends CI_Model
     }
 
     public function is_friend($visitor, $visited){
-        $uid_1 = $this->UserModel->get_user_id($visitor);
-        $uid_2 = $this->UserModel->get_user_id($visited);
-
-        $query = "SELECT * 
+        $query = "SELECT EXISTS(SELECT * 
                     FROM user_friends_relation
-                    WHERE (user_1_id=".$uid_1." AND user_2_id=".$uid_2.") 
-                    OR (user_1_id=".$uid_2." AND user_2_id=".$uid_1.");";
+                    WHERE (user_1_id=".$visitor." AND user_2_id=".$visited.") 
+                    OR (user_1_id=".$visited." AND user_2_id=".$visitor."));";
         $result = $this->db->query($query);
-        return $result->num_rows()>0?true:false;
+        return $result->result_array()[0]['exists'];
     }
 
     public function add_friend($visitor, $visited){
-        $uid_1 = $this->UserModel->get_user_id($visitor);
-        $uid_2 = $this->UserModel->get_user_id($visited);
-
-        $data = array(
-            'user_1_id' => $uid_1,
-            'user_2_id' => $uid_2
-        );
-
-        $this->db->insert('user_friends_relation',$data);
+        $query = "INSERT INTO user_friends_relation(user_1_id,user_2_id) ".
+                    "VALUES (".$visitor.",".$visited.");";
+        $res = $this->db->query($query);
+        return $res;
     }
 
     public function unfriend($visitor, $visited){
-        $uid_1 = $this->UserModel->get_user_id($visitor);
-        $uid_2 = $this->UserModel->get_user_id($visited);
-
         $query = "DELETE 
                     FROM user_friends_relation
-                    WHERE (user_1_id=".$uid_1." AND user_2_id=".$uid_2.") 
-                    OR (user_1_id=".$uid_2." AND user_2_id=".$uid_1.");";
-        $this->db->query($query);
+                    WHERE (user_1_id=".$visitor." AND user_2_id=".$visited.") 
+                    OR (user_1_id=".$visited." AND user_2_id=".$visitor.");";
+        $res = $this->db->query($query);
+        return $res;
     }
 }
