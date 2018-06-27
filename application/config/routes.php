@@ -71,17 +71,19 @@ $route['api/user_master/gp_login']['POST'] = 'UserController/gp_login/';
 $route['api/user_master/gp_login']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
 $route['api/post_master']['GET'] = 'PostController/index/';
-$route['api/post_master/(:num)']['GET'] = 'PostController/getOne/$1';
+$route['api/post_master']['POST'] = 'PostController/getOne/';
+$route['api/post_master']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/post_master/get_clique_post/(:any)']['GET'] = 'PostController/get_clique_post/$1';
+$route['api/post_master/fetch_user_posts/(:any)']['GET'] = 'PostController/getProfilePosts/$1';
 
-$route['api/comment_master/(:num)']['GET'] = 'CommentController/index/$1';
+$route['api/comment_master']['POST'] = 'CommentController/insert/';
+$route['api/comment_master']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/comment_master/insert']['POST'] = 'CommentController/insert/';
 $route['api/comment_master/insert']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
 $route['api/reply_master/insert']['POST'] = 'ReplyController/insert/';
 $route['api/reply_master/insert']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
-$route['api/post_master/fetch_user_posts/(:any)']['GET'] = 'PostController/getProfilePosts/$1';
 
 $route['api/user_master/get_user_id/(:any)']['GET'] = 'UserController/getUserId/$1';
 

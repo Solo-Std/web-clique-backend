@@ -17,8 +17,9 @@ class CommentController extends CI_Controller
         $this->load->model('UserModel');
     }
 
-    public function index($post_id){
-        echo json_encode($this->CommentModel->getAll($post_id));
+    public function index(){
+        $raw = json_decode($this->input->raw_input_stream, true);
+        echo json_encode($this->CommentModel->getAll($raw['id']));
     }
 
     public function insert(){
