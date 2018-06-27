@@ -26,6 +26,6 @@ class CliqueSubscriptionController extends CI_Controller
     }
 
     public function checkSubscription($user_id, $clique_name){
-        echo json_encode($this->CliqueSubscriptionModel->getSubscribedClique($user_id, $clique_name));
+        echo json_encode($this->CliqueSubscriptionModel->checkSubscription($user_id, $clique_name));
     }
 }
