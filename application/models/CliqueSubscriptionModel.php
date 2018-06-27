@@ -16,7 +16,7 @@ class CliqueSubscriptionModel extends CI_Model
     public function addSubscription($data)
     {
         $this->db->select('clique_id');
-        $this->db->where('title', $data['clique_name']);
+        $this->db->where('clique_name', $data['clique_name']);
         $clique_id = $this->db->get('clique_master');
 
         $subscription = array(
