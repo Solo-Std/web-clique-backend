@@ -49,9 +49,6 @@ class UserModel extends CI_Model
         echo $response->headers();
         echo $response->body();
 
-
-
-
     }
 
     public function insert($data){
