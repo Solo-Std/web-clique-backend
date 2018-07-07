@@ -35,7 +35,7 @@ class CliqueSubscriptionModel extends CI_Model
         $this->db->insert('subscribed_clique_relation', $subscription);
     }
 
-    public function checkSubscription($user_id, $clique_name){
+    public function checkSubscription($username, $clique_name){
         $data = array();
 
         $this->db->select('clique_id');
