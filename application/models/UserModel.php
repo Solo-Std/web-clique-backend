@@ -5,8 +5,9 @@
  * Date: 12/06/2018
  * Time: 15.51
  */
-namespace SendGrid;
+//namespace SendGrid;
 require 'vendor/autoload.php';
+
 
 class UserModel extends CI_Model
 {
@@ -35,12 +36,12 @@ class UserModel extends CI_Model
 
     public function sendMail()
     {
-        $from = new Email(null, "mxtmashu2@gmail.com");
+        $from = new SendGrid\Email(null, "mxtmashu2@gmail.com");
         $subject = "Hello World from the SendGrid PHP Library";
-        $to = new Email(null, "test@example.com");
-        $content = new Content("text/plain", "some text here");
-        $mail = new Mail($from, $subject, $to, $content);
-        $to = new Email(null, "herisoeparno@gmail.com");
+        $to = new SendGrid\Email(null, "test@example.com");
+        $content = new SendGrid\Content("text/plain", "some text here");
+        $mail = new SendGrid\Mail($from, $subject, $to, $content);
+        $to = new SendGrid\Email(null, "herisoeparno@gmail.com");
         $mail->personalization[0]->addTo($to);
         //echo json_encode($mail, JSON_PRETTY_PRINT), "\n";
         return $mail;
