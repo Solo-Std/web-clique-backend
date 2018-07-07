@@ -48,6 +48,8 @@ class UserModel extends CI_Model
         echo $response->headers();
         echo $response->body();
 
+        echo "hahaha bisa";
+
 
     }
 
