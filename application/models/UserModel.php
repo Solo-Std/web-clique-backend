@@ -41,6 +41,7 @@ class UserModel extends CI_Model
         $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
         $apiKey = getenv('SENDGRID_API_KEY');
+        echo getenv('SENDGRID_API_KEY');
         $sg = new \SendGrid($apiKey);
 
         $response = $sg->client->mail()->send()->post($mail);
@@ -48,7 +49,7 @@ class UserModel extends CI_Model
         echo $response->headers();
         echo $response->body();
 
-        echo "hahaha bisa";
+
 
 
     }
