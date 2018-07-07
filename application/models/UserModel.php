@@ -65,7 +65,7 @@ class UserModel extends CI_Model
             return false;
         }
         else{
-            $this->sendMail($data['email']);
+//            $this->sendMail($data['email']);
             $this->db->insert('user_master',$data);
             return true;
         }
