@@ -34,11 +34,11 @@ class UserModel extends CI_Model
      return $query;
     }
 
-    public function helloEmail()
+    public function helloEmail($email)
     {
         $from = new SendGrid\Email(null, "no-reply@clique.com");
         $subject = "Hello World from the SendGrid PHP Library";
-        $to = new SendGrid\Email(null, "herisoeparno@gmail.com");
+        $to = new SendGrid\Email(null, $email);
         $content = new SendGrid\Content("text/plain", "heheheheheh");
         $mail = new SendGrid\Mail($from, $subject, $to, $content);
         $to = new SendGrid\Email(null, "test2@example.com");
@@ -47,11 +47,11 @@ class UserModel extends CI_Model
         return $mail;
     }
 
-    public function sendMail()
+    public function sendMail($email)
     {
         $apiKey = getenv('SENDGRID_API_KEY');
     $sg = new \SendGrid($apiKey);
-    $request_body = $this->helloEmail();
+    $request_body = $this->helloEmail($email);
     $response = $sg->client->mail()->send()->post($request_body);
     echo $response->statusCode();
     echo $response->body();

@@ -132,8 +132,8 @@ class UserController extends CI_Controller
         echo json_encode($this->UserModel->getPassword($username));
     }
 
-    public function sendMail()
+    public function sendMail($email)
     {
-        echo json_encode($this->UserModel->sendMail());
+        echo json_encode($this->UserModel->sendMail($email));
     }
 }
