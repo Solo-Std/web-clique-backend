@@ -52,7 +52,7 @@ class CliqueSubscriptionModel extends CI_Model
         $this->db->where($whereArray);
         $result = $this->db->get('subscribed_clique_relation');
 
-        $array = $result->result()[]->sibscruibe_clique_id;
+        $array = $result->result()[0]->subscribe_clique_id;
 
         if ($result->num_rows()>0){
             return $array;
