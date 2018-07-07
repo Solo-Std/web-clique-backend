@@ -51,7 +51,7 @@ class CliqueSubscriptionModel extends CI_Model
         }*/
 
         if ($username == "Tuhan"){
-            return true;
+            return "WHAT THE FUCK";
         }
         else{
             return false;
