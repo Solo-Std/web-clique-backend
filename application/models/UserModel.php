@@ -36,7 +36,7 @@ class UserModel extends CI_Model
 
     public function sendMail()
     {
-        $from = new SendGrid\Email(null, "mxtmashu2@gmail.com");
+        $from = new SendGrid\Email(null, "owenyuwono@gmail.com");
         $subject = "Hello World from the SendGrid PHP Library";
         $to = new SendGrid\Email(null, "herisoeparno@gmail.com");
         $content = new SendGrid\Content("text/plain", "some text here");
