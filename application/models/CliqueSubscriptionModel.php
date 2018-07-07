@@ -25,7 +25,7 @@ class CliqueSubscriptionModel extends CI_Model
 
         $subscription = array(
             'clique_id' => $clique_id->result()[0]->clique_id,
-            'user_id' => "Tuhan"
+            'user_id' => 11
         );
 
         $this->db->insert('subscribed_clique_relation', $subscription);
