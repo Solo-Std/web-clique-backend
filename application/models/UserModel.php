@@ -5,6 +5,7 @@
  * Date: 12/06/2018
  * Time: 15.51
  */
+require 'vendor/autoload.php';
 
 class UserModel extends CI_Model
 {
@@ -31,75 +32,23 @@ class UserModel extends CI_Model
      return $query;
     }
 
-//    public function sendMail()
-//    {
-//        $to = "mxtmashu2@gmail.com";
-//        $subject = "Welcome";
-//        $txt = "Thank you for registering your account at clique!";
-//        $headers = 'From: webmaster@example.com' . "\r\n" .
-//            'Reply-To: webmaster@example.com' . "\r\n" .
-//            'X-Mailer: PHP/' . phpversion();
-//        mail($to,$subject,$txt,$headers,"-f webmaster@example.com");
-//        return 'a';
-//    }
-
-//    function sendMail()
-//    {
-//        $config = Array(
-//            'protocol' => 'smtp',
-//            'smtp_host' => 'ssl://smtp.gmail.com',
-//            'smtp_port' => 465,
-//            'smtp_user' => 'mxtmashu2@gmail.com', // change it to yours
-//            'smtp_pass' => 'unimedia', // change it to yours
-//            'mailtype' => 'html',
-//            'charset' => 'iso-8859-1',
-//            'wordwrap' => TRUE
-//        );
-//
-//        $message = 'asdfg';
-//        $this->load->library('email', $config);
-//        $this->email->set_newline("\r\n");
-//        $this->email->from('herisoeparno@gmail.com'); // change it to yours
-//        $this->email->to('mxtmashu2@gmail.com');// change it to yours
-//        $this->email->subject('Resume from JobsBuddy for your Job posting');
-//        $this->email->message($message);
-//        if($this->email->send())
-//        {
-//            echo 'Email sent.';
-//        }
-//        else
-//        {
-//            show_error($this->email->print_debugger());
-//        }
-//
-//    }
-
     public function sendMail()
     {
-        $config = Array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'ssl://smtp.gmail.com',
-            'smtp_port' => 25,
-            'smtp_user' => 'mxtmashu2@gmail.com',
-            'smtp_pass' => 'unimedia',
-            'mailtype'  => 'html',
-            'charset'   => 'iso-8859-1'
-        );
-        $this->load->library('email', $config);
-        $this->email->set_newline("\r\n");
+        $from = new SendGrid\Email(null, "mxtmashu2@gmail.com");
+        $subject = "Hello World from the SendGrid PHP Library!";
+        $to = new SendGrid\Email(null, "herisoeparno@gmail.com");
+        $content = new SendGrid\Content("text/plain", "Hello, Email!");
+        $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-        $this->email->initialize($config);
-        $this->email->from('mxtmashu2@gmail.com');
-        $this->email->to('herisoeparno@gmail.com');
-        $this->email->subject('Registration Verification:');
-        $message = "Thanks for signing up! Your account has been created...!";
+        $apiKey = getenv('SENDGRID_API_KEY');
+        $sg = new \SendGrid($apiKey);
 
-        $result = $this->email->send();
-//        echo "haha";
-//        if (  $this->email->send()) {
-//            echo "berhasil!";
-//        }
-        return $result;
+        $response = $sg->client->mail()->send()->post($mail);
+        echo $response->statusCode();
+        echo $response->headers();
+        echo $response->body();
+
+
     }
 
     public function insert($data){
