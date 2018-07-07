@@ -5,7 +5,6 @@
  * Date: 12/06/2018
  * Time: 15.51
  */
-namespace SendGrid;
 require 'vendor/autoload.php';
 
 class UserModel extends CI_Model
@@ -35,15 +34,20 @@ class UserModel extends CI_Model
 
     public function sendMail()
     {
-        $from = new Email(null, "mxtmashu2@gmail.com");
-        $subject = "Hello World from the SendGrid PHP Library";
-        $to = new Email(null, "test@example.com");
-        $content = new Content("text/plain", "some text here");
-        $mail = new Mail($from, $subject, $to, $content);
-        $to = new Email(null, "herisoeparno@gmail.com");
-        $mail->personalization[0]->addTo($to);
-        //echo json_encode($mail, JSON_PRETTY_PRINT), "\n";
-        return $mail;
+        $from = new SendGrid\Email(null, "n142039@nwytg.com");
+        $subject = "Hello World from the SendGrid PHP Library!";
+        $to = new SendGrid\Email(null, "herisoeparno@gmail.com");
+        $content = new SendGrid\Content("text/plain", "Hello, Email!");
+        $mail = new SendGrid\Mail($from, $subject, $to, $content);
+
+        $apiKey = getenv('SENDGRID_API_KEY');
+        echo getenv('SENDGRID_API_KEY');
+        $sg = new \SendGrid($apiKey);
+
+        $response = $sg->client->mail()->send()->post($mail);
+        echo $response->statusCode();
+        echo $response->headers();
+        echo $response->body();
 
     }
 
