@@ -42,8 +42,8 @@ class CliqueSubscriptionModel extends CI_Model
             $data[$idx]['cliques'] = $subbedClique->row($idx)->clique_id;
         }
 
-        if (count($data)){
-            return true;
+        if (count($data) > 0){
+            return $data;
         }
         else{
             return false;
