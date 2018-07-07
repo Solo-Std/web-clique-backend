@@ -56,7 +56,7 @@ class CliqueSubscriptionModel extends CI_Model
             echo true;
         }
         else{
-            return false;
+            echo false;
         }
     }
 }
