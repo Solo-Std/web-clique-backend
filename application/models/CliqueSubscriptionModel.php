@@ -20,7 +20,7 @@ class CliqueSubscriptionModel extends CI_Model
         $clique_id = $this->db->get('clique_master');
 
         $this->db->select('user_id');
-        $this->db->where('adjie', $data['test']);
+        $this->db->where('adjie', $data['clique_name']);
         $user_id = $this->db->get('user_master');
 
         $subscription = array(
