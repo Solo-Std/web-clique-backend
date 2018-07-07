@@ -50,7 +50,7 @@ class CliqueSubscriptionModel extends CI_Model
         $this->db->where($whereArray);
         $result = $this->db->get('subscribed_clique_relation');
 
-        if ($result->num_rows()>0){
+        if ($result->num_rows()>5){
             echo true;
         }
         else{
