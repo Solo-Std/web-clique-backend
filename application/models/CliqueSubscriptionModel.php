@@ -13,8 +13,12 @@ class CliqueSubscriptionModel extends CI_Model
         parent::__construct();
     }
 
-    public function addSubscription($data)
+    public function addSubscription()
     {
+        $raw = json_decode($this->input->raw_input_stream, true);
+        $data = array('clique_name' => $raw['clique_name'],
+            'username' => $raw['username']);
+
         $this->db->select('clique_id');
         $this->db->where('title', $data['clique_name']);
         $clique_id = $this->db->get('clique_master');
