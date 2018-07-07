@@ -54,7 +54,7 @@ class CliqueSubscriptionModel extends CI_Model
             return true;
         }
         else{
-            return false;
+            return "FUCK";
         }
     }
 }
