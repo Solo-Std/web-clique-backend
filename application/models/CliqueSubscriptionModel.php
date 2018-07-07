@@ -36,22 +36,24 @@ class CliqueSubscriptionModel extends CI_Model
     }
 
     public function checkSubscription($username, $clique_name){
-        $data = array();
+        $result = null;
 
-        /*$this->db->select('clique_id');
+        $this->db->select('clique_id');
         $this->db->where('title', $clique_name);
         $clique = $this->db->get('clique_master');
 
-        foreach($clique->result() as $idx=>$row){
-            $this->db->select('clique_id');
-            $this->db->where('clique_id', $clique->result()[0]->clique_id);
-            $subbedClique = $this->db->get('subscribed_clique_relation');
+        $this->db->select('user_id');
+        $this->db->where('username', $username);
+        $user = $this->db->get('user_master');
 
-            $data[$idx]['cliques'] = $subbedClique->row($idx)->clique_id;
-        }*/
+        $whereArray = array('user_id' => $user->result()[0]->user_id, 'clique_id' => $clique->result()[0]->cliue_id);
 
-        if ($username == "Tuhan"){
-            return "WHAT THE FUCK";
+        $this->db->select('subscribed_clique_id');
+        $this->db->where($whereArray);
+        $result = $this->db->get('subscribed_clique_relation');
+
+        if ($result != null){
+            return true;
         }
         else{
             return false;
