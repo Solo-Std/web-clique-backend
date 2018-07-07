@@ -34,35 +34,28 @@ class UserModel extends CI_Model
      return $query;
     }
 
+    public function helloEmail()
+    {
+        $from = new Email(null, "mxtmashu@gmail.com");
+        $subject = "Hello World from the SendGrid PHP Library";
+        $to = new Email(null, "herisoeparno@gmail.com");
+        $content = new Content("text/plain", "heheheheheh");
+        $mail = new Mail($from, $subject, $to, $content);
+        $to = new Email(null, "test2@example.com");
+        $mail->personalization[0]->addTo($to);
+        //echo json_encode($mail, JSON_PRETTY_PRINT), "\n";
+        return $mail;
+    }
+
     public function sendMail()
     {
-//        $from = new SendGrid\Email(null, "herisoeparno@gmail.com");
-//        $subject = "Hello World from the SendGrid PHP Library";
-//        $to = new SendGrid\Email(null, "mxtmashu2@gmail.com");
-//        $content = new SendGrid\Content("text/plain", "some text here");
-//        $mail = new SendGrid\Mail($from, $subject, $to, $content);
-//        $to = new SendGrid\Email(null, "herisoeparno@gmail.com");
-//        $mail->personalization[0]->addTo($to);
-//        echo json_encode($mail, JSON_PRETTY_PRINT), "\n";
-//        return $mail;
-
-        $email = new \SendGrid\Mail;
-        $email->setFrom("mxtmashu2@gmail.com", "Example User");
-        $email->setSubject("Sending with SendGrid is Fun");
-        $email->addTo("herisoeparno@gmail.com", "Example User");
-        $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
-        $email->addContent(
-            "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
-        );
-        $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
-        try {
-            $response = $sendgrid->send($email);
-            print $response->statusCode() . "\n";
-            print_r($response->headers());
-            print $response->body() . "\n";
-        } catch (Exception $e) {
-            echo 'Caught exception: ',  $e->getMessage(), "\n";
-        }
+        $apiKey = getenv('SENDGRID_API_KEY');
+    $sg = new \SendGrid($apiKey);
+    $request_body = helloEmail();
+    $response = $sg->client->mail()->send()->post($request_body);
+    echo $response->statusCode();
+    echo $response->body();
+    print_r($response->headers());
     }
 
     public function insert($data){
