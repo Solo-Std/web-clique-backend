@@ -46,9 +46,9 @@ class CliqueSubscriptionModel extends CI_Model
         $this->db->where('username', $username);
         $user = $this->db->get('user_master');
 
-        $whereArray = array('user_id' => $user->result()[0]->user_id, 'clique_id' => $clique->result()[0]->cliue_id);
+        $whereArray = array('user_id' => $user->result()[0]->user_id, 'clique_id' => $clique->result()[0]->clique_id);
 
-        $this->db->select('subscribed_clique_id');
+        $this->db->select('subscribe_clique_id');
         $this->db->where($whereArray);
         $result = $this->db->get('subscribed_clique_relation');
 
