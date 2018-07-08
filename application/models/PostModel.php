@@ -16,7 +16,7 @@ class PostModel extends CI_Model
     public function insert($data){
 
         $this->db->select('clique_id');
-        $this->db->where('title', $data['clique_name']);
+        $this->db->where('title', $data['title']);
         $clique = $this->db->get('clique_master');
 
         $this->db->select('user_id');
