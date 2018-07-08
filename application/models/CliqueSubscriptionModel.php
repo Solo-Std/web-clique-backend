@@ -32,7 +32,7 @@ class CliqueSubscriptionModel extends CI_Model
             'user_id' => $user_id->result()[0]->user_id
         );
 
-        $this->db->delete('subscribed_clique_relation', $subscription);
+        $this->db->insert('subscribed_clique_relation', $subscription);
     }
 
     public function unsubscribe($data){
