@@ -51,10 +51,9 @@ class UserModel extends CI_Model
         $res = $this->db->get('user_master');
         foreach ($res->result() as $idx => $row) {
             $data = array(
-                'image'=>$row->image,
+                'image'=>stream_get_contents($row->image),
                 'image_ext'=>$row->image_ext
             );
-            echo stream_get_contents($data['image']);
             return json_encode($data);
         }
     }
