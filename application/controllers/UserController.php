@@ -23,11 +23,13 @@ class UserController extends CI_Controller
         $raw = json_decode($this->input->raw_input_stream, true);
         $bucket = $this->s3->listBuckets()[0];
 
-        $upload = $this->s3->putObject(
-            $this->s3->inputFile($raw['file']),
-            $bucket, $uri);
+        $input = $this->s3->inputResource(fopen($raw['file'], "rb"), filesize($raw['file']));
 
-        echo $upload;
+        if($this->s3->putObject($input, $bucket, $uri, S3::ACL_PUBLIC_READ)){
+            echo "File uploaded.";
+        } else {
+            echo "Failed to upload file.";
+        }
         // update object url to ci db
     }
 
