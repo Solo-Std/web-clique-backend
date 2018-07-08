@@ -104,3 +104,6 @@ $route['api/subscribed_clique_relation']['POST'] = 'CliqueSubscriptionController
 $route['api/subscribed_clique_relation']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
 $route['api/subscribed_clique_relation/getsubscribedclique/(:num)']['GET'] = 'SubscribedCliqueController/getSubscribedClique/$1';
+
+
+$route['api/aws']['GET'] = 'UserController/upload_image';
