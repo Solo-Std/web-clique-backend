@@ -23,6 +23,11 @@ class UserController extends CI_Controller
         $this->UserModel->update_image($raw);
     }
 
+    public function get_image(){
+        $raw = json_decode($this->input->raw_input_stream, true);
+        echo $this->UserModel->get_image($raw['username']);
+    }
+
     public function index(){
         echo json_encode($this->UserModel->getAll());
     }
