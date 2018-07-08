@@ -103,4 +103,4 @@ $route['api/subscribed_clique_relation/checksubscription/(:any)/(:any)']['GET'] 
 $route['api/subscribed_clique_relation']['POST'] = 'CliqueSubscriptionController/addSubscription/';
 $route['api/subscribed_clique_relation']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
-$route['api/subscribed_clique_relation/getsubscribedclique/(:num)']['GET'] = 'SubscribedCliqueController/getSubscribedClique/$1';
+$route['api/subscribed_clique_relation/getsubscribedclique/(:any)']['GET'] = 'SubscribedCliqueController/getSubscribedClique/$1';
