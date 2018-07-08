@@ -38,6 +38,7 @@ class UserModel extends CI_Model
     public function update_image($data)
     {
         $this->db->set('image', $data['file']);
+        $this->db->set('image_ext', $data['file_ext']);
         $this->db->where('username', $data['username']);
         $this->db->update('user_master');
     }
@@ -45,11 +46,15 @@ class UserModel extends CI_Model
     public function get_image($username)
     {
         $this->db->select('image');
+        $this->db->select('image_ext');
         $this->db->where('username', $username);
         $res = $this->db->get('user_master');
         foreach ($res->result() as $idx => $row) {
-            echo json_encode($row->image);
-            return json_encode($row->image);
+            $data = array(
+                'image'=>$row->image,
+                'image_ext'=>$row->image_ext
+            );
+            return json_encode($data);
         }
     }
 
