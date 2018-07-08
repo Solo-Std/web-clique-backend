@@ -31,7 +31,7 @@ class PostModel extends CI_Model
             'data_created' => $data['date_created']
         );
 
-        $this->db->insert('subscribed_clique_relation', $newPost);
+        $this->db->insert('post_master', $newPost);
     }
 
     public function getAll(){
