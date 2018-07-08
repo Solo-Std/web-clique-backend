@@ -73,7 +73,7 @@ class CliqueSubscriptionModel extends CI_Model
         $result = $this->db->get('subscribed_clique_relation');
 
         if ($result->num_rows()>0){
-            return true
+            return true;
         }
         else{
             return false;
