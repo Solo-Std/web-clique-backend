@@ -108,6 +108,4 @@ $route['api/post_master/insert']['OPTIONS'] = 'HttpOptionsController/http_option
 
 $route['api/subscribed_clique_relation/unsubscribe']['POST'] = 'CliqueSubscriptionController/unsubscribe/';
 $route['api/subscribed_clique_relation/unsubscribe']['OPTIONS'] = 'HttpOptionsController/http_options/';
-
-
 $route['api/subscribed_clique_relation/getsubscribedclique/(:num)']['GET'] = 'SubscribedCliqueController/getSubscribedClique/$1';
