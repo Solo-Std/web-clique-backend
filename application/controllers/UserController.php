@@ -19,19 +19,8 @@ class UserController extends CI_Controller
     }
 
     public function upload_image(){
-        $uri = '';
         $raw = json_decode($this->input->raw_input_stream, true);
-        $bucket = $this->s3->listBuckets()[0];
-
-        echo $raw['file'];
-        $input = $this->s3->inputFile($raw['file']);
-
-        if($this->s3->putObject($input, $bucket, $uri, S3::ACL_PUBLIC_READ)){
-            echo "File uploaded.";
-        } else {
-            echo "Failed to upload file.";
-        }
-        // update object url to ci db
+        $this->UserModel->update_image($raw);
     }
 
     public function index(){

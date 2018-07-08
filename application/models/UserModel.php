@@ -34,6 +34,12 @@ class UserModel extends CI_Model
      return $query;
     }
 
+    public function update_image($data){
+        $this->db->set('image', $data['file']);
+        $this->db->where('username', $data['username']);
+        $this->db->update('user_master');
+    }
+
     public function helloEmail($email)
     {
         $from = new SendGrid\Email(null, "no-reply@clique.com");
