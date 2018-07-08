@@ -50,13 +50,13 @@ class UserModel extends CI_Model
         $this->db->where('username', $username);
         $res = $this->db->get('user_master');
         foreach ($res->result() as $idx => $row) {
+            if($row->image==null || $row->image_ext==null){
+                return json_encode("FAILED");
+            }
             $data = array(
                 'image'=>stream_get_contents($row->image),
                 'image_ext'=>$row->image_ext
             );
-            if($data['image_ext']==null){
-                return json_encode("FAILED");
-            }
             return json_encode($data);
         }
     }
