@@ -54,6 +54,9 @@ class UserModel extends CI_Model
                 'image'=>stream_get_contents($row->image),
                 'image_ext'=>$row->image_ext
             );
+            if($data['image_ext']==null){
+                return json_encode("FAILED");
+            }
             return json_encode($data);
         }
     }
