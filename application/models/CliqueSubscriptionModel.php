@@ -45,11 +45,11 @@ class CliqueSubscriptionModel extends CI_Model
         $user = $this->db->get('user_master');
 
         $unsub = array(
-            'clique_id' => $clique->result()[0]->clique_id,
+            'clique_id' => $clique->result()[0]->clique_ids,
             'user_id' => $user->result()[0]->user_id
         );
 
-        $this->db->delete('subscribed_clique_relation', $unsub);
+        $this->db->insert('subscribed_clique_relation', $unsub);
     }
 
     public function checkSubscription($username, $clique_name){
