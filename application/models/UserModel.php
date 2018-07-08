@@ -55,7 +55,7 @@ class UserModel extends CI_Model
                 'image_ext'=>$row->image_ext
             );
             echo strlen(base64_decode($data['image']));
-            echo pg_unescape_bytea($data['image']);
+            echo gettype($data['image']);
             return json_encode($data);
         }
     }
