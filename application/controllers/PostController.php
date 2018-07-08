@@ -22,8 +22,8 @@ class PostController extends CI_Controller
             'content' => $raw['content'],
             'date_created' => date('Y-m-d H:i:s',strtotime("+7 hours")),
             'username' => $raw['username'],
-            'clique_name' => $raw['clique_name '],
-            'title' => $raw['clique_name ']
+            'clique_name' => $raw['clique_name'],
+            'title' => $raw['title']
         );
 
         $this->PostModel->insert($data);
