@@ -25,6 +25,7 @@ class UserController extends CI_Controller
         $upload = $this->s3->upload($bucket, $_FILES['userfile']['name'],
             fopen($raw['file'], 'rb'), 'public-read');
 
+        echo $upload;
         // update object url to ci db
     }
 
