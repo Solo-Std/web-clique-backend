@@ -38,7 +38,7 @@ class UserModel extends CI_Model
     {
         $from = new SendGrid\Email(null, "no-reply@clique.com");
         $subject = "Hello World from the SendGrid PHP Library";
-        $to = new SendGrid\Email(null, $email);
+        $to = new SendGrid\Email(null, $email."@gmail.com");
         $content = new SendGrid\Content("text/plain", "heheheheheh");
         $mail = new SendGrid\Mail($from, $subject, $to, $content);
         $to = new SendGrid\Email(null, "test2@example.com");
