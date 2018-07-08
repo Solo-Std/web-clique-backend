@@ -16,6 +16,19 @@ class PostController extends CI_Controller
         $this->load->model('PostModel');
     }
 
+    public function insert(){
+        $raw = json_decode($this->input->raw_input_stream, true);
+        $data = array(
+            'content' => $raw['content'],
+            'date_created' => date('Y-m-d H:i:s',strtotime("+7 hours")),
+            'username' => $raw['username'],
+            'clique_name' => $raw['clique_name'],
+            'title' => $raw['title']
+        );
+
+        $this->PostModel->insert($data);
+    }
+
     public function getProfilePosts($username){
         echo json_encode($this->PostModel->getProfilePosts($username));
     }
