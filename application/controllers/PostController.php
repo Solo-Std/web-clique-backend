@@ -26,7 +26,7 @@ class PostController extends CI_Controller
             'title' => $raw['title']
         );
 
-        $this->CliqueSubscriptionModel->addSubscription($data);
+        $this->CliqueSubscriptionModel->insert($data);
     }
 
     public function getProfilePosts($username){
