@@ -69,6 +69,8 @@ $route['api/user_master/fb_login']['POST'] = 'UserController/fb_login/';
 $route['api/user_master/fb_login']['OPTIONS'] = 'HttpOptionsController/http_options/';
 $route['api/user_master/gp_login']['POST'] = 'UserController/gp_login/';
 $route['api/user_master/gp_login']['OPTIONS'] = 'HttpOptionsController/http_options/';
+$route['api/user_master/upload_image']['POST'] = 'UserController/upload_image/';
+$route['api/user_master/upload_image']['OPTIONS'] = 'HttpOptionsController/http_options/';
 
 $route['api/post_master']['GET'] = 'PostController/index/';
 $route['api/post_master']['POST'] = 'PostController/getOne/';
