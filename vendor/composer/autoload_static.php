@@ -8,6 +8,8 @@ class ComposerStaticInitc35c887b876a457d54e5e9dd8f0e7c87
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '3f8bdd3b35094c73a26f0106e3c0f8b2' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/SendGrid.php',
+        '9dda55337a76a24e949fbcc5d905a2c7' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/helpers/mail/Mail.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -53,6 +55,13 @@ class ComposerStaticInitc35c887b876a457d54e5e9dd8f0e7c87
             'org\\bovigo\\vfs\\' => 
             array (
                 0 => __DIR__ . '/..' . '/mikey179/vfsStream/src/main/php',
+            ),
+        ),
+        'S' => 
+        array (
+            'SendGrid' => 
+            array (
+                0 => __DIR__ . '/..' . '/sendgrid/php-http-client/lib',
             ),
         ),
         'P' => 

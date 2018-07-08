@@ -13,6 +13,27 @@ class PostModel extends CI_Model
         parent::__construct();
     }
 
+    public function insert($data){
+
+        $this->db->select('clique_id');
+        $this->db->where('title', $data['clique_name']);
+        $clique = $this->db->get('clique_master');
+
+        $this->db->select('user_id');
+        $this->db->where('username', $data['username']);
+        $user = $this->db->get('user_master');
+
+        $newPost = array(
+            'clique_id' => $clique->result()[0]->clique_id,
+            'user_id' => $user->result()[0]->user_id,
+            'title' => $data['title'],
+            'description' => $data['content'],
+            'date_created' => $data['date_created']
+        );
+
+        $this->db->insert('post_master', $newPost);
+    }
+
     public function getAll(){
         $data = array(array());
         $this->db->order_by('date_created', "DESC");

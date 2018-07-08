@@ -15,6 +15,17 @@ class UserController extends CI_Controller
         $this->load->database();
         $this->load->model('UserModel');
         $this->load->library('session');
+        $this->load->library('S3');
+    }
+
+    public function upload_image(){
+        $raw = json_decode($this->input->raw_input_stream, true);
+        $this->UserModel->update_image($raw);
+    }
+
+    public function get_image(){
+        $raw = json_decode($this->input->raw_input_stream, true);
+        echo $this->UserModel->get_image($raw['username']);
     }
 
     public function index(){

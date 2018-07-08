@@ -25,6 +25,15 @@ class CliqueSubscriptionController extends CI_Controller
         $this->CliqueSubscriptionModel->addSubscription($data);
     }
 
+    public function unsubscribe(){
+        $raw =  json_decode($this->input->raw_input_stream, true);
+        $data = array(
+            'clique_name' => $raw['clique_name'],
+            'username' => $raw['username']
+        );
+        $this->CliqueSubscriptionModel->unsubscribe($data);
+    }
+
     public function checkSubscription($username, $clique_name){
         echo json_encode($this->CliqueSubscriptionModel->checkSubscription($username, $clique_name));
     }
