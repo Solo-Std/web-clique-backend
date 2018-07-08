@@ -28,7 +28,7 @@ class PostModel extends CI_Model
             'user_id' => $user->result()[0]->user_id,
             'title' => $data['title'],
             'description' => $data['content'],
-            'data_created' => $data['date_created']
+            'date_created' => $data['date_created']
         );
 
         $this->db->insert('post_master', $newPost);
