@@ -12,12 +12,16 @@ class SubscribedCliqueModel extends CI_Model
         parent::__construct();
     }
 
-    public function getSubscribedClique($user_id)
+    public function getSubscribedClique($username)
     {
         $data = array();
 
+        $this->db->select('user_id');
+        $this->db->where('username', $username);
+        $user = $this->db->get('user_master');
+
         $this->db->select('clique_id');
-        $this->db->where('user_id',$user_id);
+        $this->db->where('user_id', $user->result()[0]->user_id);
         $subscribe = $this->db->get('subscribed_clique_relation');
 
         foreach($subscribe->result() as $idx=>$row){
